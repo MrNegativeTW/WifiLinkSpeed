@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardview_main_ssid"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?android:attr/selectableItemBackground"
+        app:cardBackgroundColor="#00FFFFFF"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="0dp"
+        app:contentPaddingBottom="@dimen/card_content_padding_vertical"
+        app:contentPaddingLeft="@dimen/card_content_padding_horizontal"
+        app:contentPaddingRight="@dimen/card_content_padding_horizontal"
+        app:contentPaddingTop="@dimen/card_content_padding_vertical"
+        app:layout_constraintEnd_toStartOf="@id/cardview_main_status"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textview_ssid_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/ssid_title" />
+
+            <TextView
+                android:id="@+id/textview_ssid_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/ssid_value"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardview_main_status"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?android:attr/selectableItemBackground"
+        app:cardBackgroundColor="#00FFFFFF"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="0dp"
+        app:contentPaddingBottom="@dimen/card_content_padding_vertical"
+        app:contentPaddingLeft="@dimen/card_content_padding_horizontal"
+        app:contentPaddingRight="@dimen/card_content_padding_horizontal"
+        app:contentPaddingTop="@dimen/card_content_padding_vertical"
+        app:layout_constraintEnd_toStartOf="@id/cardview_main_linkspeed"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/cardview_main_ssid"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textview_status_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/rssi_title" />
+
+            <TextView
+                android:id="@+id/textview_status_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/rssi_value"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardview_main_linkspeed"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?android:attr/selectableItemBackground"
+        app:cardBackgroundColor="#00FFFFFF"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="0dp"
+        app:contentPaddingBottom="@dimen/card_content_padding_vertical"
+        app:contentPaddingLeft="@dimen/card_content_padding_horizontal"
+        app:contentPaddingRight="@dimen/card_content_padding_horizontal"
+        app:contentPaddingTop="@dimen/card_content_padding_vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/cardview_main_status"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textview_linkspeed_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/linkspeed_title" />
+
+            <TextView
+                android:id="@+id/textview_linkspeed_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/linkspeed_value"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardview_main_openspeedtest"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:onClick="openSpeedtest"
+        app:cardBackgroundColor="#00FFFFFF"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="0dp"
+        app:contentPaddingBottom="@dimen/card_content_padding_vertical"
+        app:contentPaddingLeft="@dimen/card_content_padding_horizontal"
+        app:contentPaddingRight="@dimen/card_content_padding_horizontal"
+        app:contentPaddingTop="@dimen/card_content_padding_vertical"
+        app:layout_constraintEnd_toStartOf="@id/cardview_main_openfastcom"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cardview_main_ssid">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textview_speedtest_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/speedtest_title" />
+
+            <TextView
+                android:id="@+id/textview_speedtest_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/speedtest_value"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardview_main_openfastcom"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="8dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:onClick="openFastCom"
+        app:cardBackgroundColor="#00FFFFFF"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="0dp"
+        app:contentPaddingBottom="@dimen/card_content_padding_vertical"
+        app:contentPaddingLeft="@dimen/card_content_padding_horizontal"
+        app:contentPaddingRight="@dimen/card_content_padding_horizontal"
+        app:contentPaddingTop="@dimen/card_content_padding_vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@id/cardview_main_openspeedtest"
+        app:layout_constraintTop_toBottomOf="@id/cardview_main_ssid">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textview_fastcom_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/fastcom_title" />
+
+            <TextView
+                android:id="@+id/textview_fastcom_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/fastcom_value"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
