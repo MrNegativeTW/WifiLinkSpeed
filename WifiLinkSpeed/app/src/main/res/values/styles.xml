@@ -3,9 +3,25 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="colorPrimary">@color/lightMode_colorPrimary</item>
+        <item name="colorPrimaryDark">@color/lightMode_colorPrimaryDark</item>
+        <item name="colorAccent">@color/lightMode_colorAccent</item>
+    </style>
+
+    <!-- Dark Theme (Default) -->
+    <style name="AppTheme_Dark" parent="Theme.AppCompat">
+        <item name="colorPrimary">@color/darkMode_colorPrimaryDark</item>
+        <item name="colorPrimaryDark">@color/darkMode_colorPrimaryDark</item>
+        <item name="colorAccent">@color/darkMode_colorAccent</item>
+<!--        <item name="fabButtonColor">@color/fabButtonColor</item>-->
+<!--        <item name="PopupOverlay">@style/AppTheme.PopupOverlay</item>-->
+<!--        <item name="iconColor">@color/white</item>-->
+    </style>
+
+    <style name="AppTheme_NoActionBar" parent="AppTheme">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
     </style>
 
 </resources>

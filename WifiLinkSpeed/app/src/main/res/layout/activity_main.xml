@@ -6,15 +6,38 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_main"
+        android:layout_width="match_parent"
+        android:layout_height="32dp"
+        android:background="@color/lightMode_colorPrimary"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textView_main_toolbarTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/exo_2_bold"
+            android:text="@string/app_name_toolbar"
+            tools:layout_editor_absoluteX="156dp"
+            tools:layout_editor_absoluteY="6dp" />
+
+    </androidx.appcompat.widget.Toolbar>
+
+
     <androidx.cardview.widget.CardView
         android:id="@+id/cardview_main_ssid"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
         android:clickable="true"
         android:focusable="true"
         android:foreground="?android:attr/selectableItemBackground"
+        android:onClick="openWifiSettings"
         app:cardBackgroundColor="#00FFFFFF"
         app:cardCornerRadius="8dp"
         app:cardElevation="0dp"
@@ -22,27 +45,28 @@
         app:contentPaddingLeft="@dimen/card_content_padding_horizontal"
         app:contentPaddingRight="@dimen/card_content_padding_horizontal"
         app:contentPaddingTop="@dimen/card_content_padding_vertical"
-        app:layout_constraintEnd_toStartOf="@id/cardview_main_status"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@id/toolbar_main">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
+            android:gravity=""
             android:orientation="vertical">
 
             <TextView
                 android:id="@+id/textview_ssid_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/exo"
                 android:text="@string/ssid_title" />
 
             <TextView
                 android:id="@+id/textview_ssid_value"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/exo_semibold"
                 android:text="@string/ssid_value"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
@@ -50,10 +74,10 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardview_main_status"
+        android:id="@+id/cardview_main_rssi"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="8dp"
         android:clickable="true"
         android:focusable="true"
         android:foreground="?android:attr/selectableItemBackground"
@@ -66,25 +90,26 @@
         app:contentPaddingTop="@dimen/card_content_padding_vertical"
         app:layout_constraintEnd_toStartOf="@id/cardview_main_linkspeed"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/cardview_main_ssid"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cardview_main_ssid">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/textview_status_title"
+                android:id="@+id/textview_rssi_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/exo"
                 android:text="@string/rssi_title" />
 
             <TextView
-                android:id="@+id/textview_status_value"
+                android:id="@+id/textview_rssi_value"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/exo_semibold"
                 android:text="@string/rssi_value"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
@@ -95,7 +120,6 @@
         android:id="@+id/cardview_main_linkspeed"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:clickable="true"
         android:focusable="true"
@@ -109,25 +133,26 @@
         app:contentPaddingTop="@dimen/card_content_padding_vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/cardview_main_status"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintStart_toEndOf="@+id/cardview_main_rssi"
+        app:layout_constraintTop_toBottomOf="@id/cardview_main_ssid">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
             android:orientation="vertical">
 
             <TextView
                 android:id="@+id/textview_linkspeed_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/exo"
                 android:text="@string/linkspeed_title" />
 
             <TextView
                 android:id="@+id/textview_linkspeed_value"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/exo_semibold"
                 android:text="@string/linkspeed_value"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
@@ -143,7 +168,7 @@
         android:clickable="true"
         android:focusable="true"
         android:foreground="?android:attr/selectableItemBackground"
-        android:onClick="openSpeedtest"
+        android:onClick="openSpeedTest"
         app:cardBackgroundColor="#00FFFFFF"
         app:cardCornerRadius="8dp"
         app:cardElevation="0dp"
@@ -151,29 +176,30 @@
         app:contentPaddingLeft="@dimen/card_content_padding_horizontal"
         app:contentPaddingRight="@dimen/card_content_padding_horizontal"
         app:contentPaddingTop="@dimen/card_content_padding_vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/cardview_main_openfastcom"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cardview_main_ssid">
+        app:layout_constraintStart_toStartOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
             android:orientation="vertical">
 
             <TextView
                 android:id="@+id/textview_speedtest_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/exo"
                 android:text="@string/speedtest_title" />
 
             <TextView
                 android:id="@+id/textview_speedtest_value"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/exo_semibold"
                 android:text="@string/speedtest_value"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+                android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>
@@ -182,8 +208,8 @@
         android:id="@+id/cardview_main_openfastcom"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
         android:clickable="true"
         android:focusable="true"
         android:foreground="?android:attr/selectableItemBackground"
@@ -195,27 +221,28 @@
         app:contentPaddingLeft="@dimen/card_content_padding_horizontal"
         app:contentPaddingRight="@dimen/card_content_padding_horizontal"
         app:contentPaddingTop="@dimen/card_content_padding_vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@id/cardview_main_openspeedtest"
-        app:layout_constraintTop_toBottomOf="@id/cardview_main_ssid">
+        app:layout_constraintStart_toEndOf="@id/cardview_main_openspeedtest">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
             android:orientation="vertical">
 
             <TextView
                 android:id="@+id/textview_fastcom_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/exo"
                 android:text="@string/fastcom_title" />
 
             <TextView
                 android:id="@+id/textview_fastcom_value"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/exo_semibold"
                 android:text="@string/fastcom_value"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 

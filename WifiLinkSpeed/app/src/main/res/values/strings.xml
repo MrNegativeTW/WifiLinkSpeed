@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">WiFi Link Speed</string>
-    <string name="ssid_title">SSID</string>
+    <string name="app_name_toolbar">WiFi LINK SPEED</string>
+    <string name="ssid_title">YOU ARE ON</string>
     <string name="ssid_value">Unknown</string>
     <string name="rssi_title">RSSI</string>
     <string name="rssi_value">-- db</string>
