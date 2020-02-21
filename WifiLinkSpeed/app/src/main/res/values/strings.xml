@@ -5,9 +5,9 @@
     <string name="ssid_title">YOU ARE ON</string>
     <string name="ssid_value">Unknown</string>
     <string name="rssi_title">RSSI</string>
-    <string name="rssi_value">-- db</string>
-    <string name="linkspeed_title">Link Speed</string>
-    <string name="linkspeed_value">Unknown</string>
+    <string name="rssi_value">-- dBm</string>
+    <string name="linkspeed_title">LINK SPEED</string>
+    <string name="linkspeed_value">-- Mbps</string>
     <string name="rxspeed_title">Rx Speed</string>
     <string name="rxspeed_value">Unsupported</string>
     <string name="txspeed_title">Tx Speed</string>

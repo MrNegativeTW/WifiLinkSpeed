@@ -65,8 +65,8 @@ class MainActivity : AppCompatActivity() {
         val info: WifiInfo = wifiManager.connectionInfo
 
         textview_ssid_value.text = info.ssid.substring(1, info.ssid.length - 1)
-        textview_rssi_value.text = info.rssi.toString()
-        textview_linkspeed_value.text = info.linkSpeed.toString()
+        textview_rssi_value.text = info.rssi.toString() + " dBm"
+        textview_linkspeed_value.text = info.linkSpeed.toString()+ " Mbps"
     }
 
     var mStatusChecker: Runnable = object : Runnable {
