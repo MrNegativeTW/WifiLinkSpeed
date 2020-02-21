@@ -9,7 +9,6 @@ import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
 import android.view.WindowManager
 import androidx.browser.customtabs.CustomTabsIntent
 import androidx.core.content.ContextCompat
@@ -36,12 +35,14 @@ class MainActivity : AppCompatActivity() {
         super.onResume()
         startRepeatingTask()
     }
+
     override fun onPause() {
         super.onPause()
         stopRepeatingTask()
     }
 
 
+    /** App Initial */
     private fun setupTheme() {
         setTheme(R.style.AppTheme_NoActionBar)
 
@@ -64,7 +65,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(android.provider.Settings.ACTION_WIFI_SETTINGS))
         }
 
-        cardview_main_openspeedtest.setOnClickListener{
+        cardview_main_openspeedtest.setOnClickListener {
             var intent = packageManager.getLaunchIntentForPackage("org.zwanoo.android.speedtest")
             if (intent != null) {
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
@@ -83,16 +84,24 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+
+    /**
+     * Get current wifi info then set to text.
+     * */
     private fun getWifiInfo() {
         val wifiManager = applicationContext.getSystemService(Context.WIFI_SERVICE) as WifiManager
         val info: WifiInfo = wifiManager.connectionInfo
 
         textview_ssid_value.text = info.ssid.substring(1, info.ssid.length - 1)
         textview_rssi_value.text = info.rssi.toString() + " dBm"
-        textview_linkspeed_value.text = info.linkSpeed.toString()+ " Mbps"
+        textview_linkspeed_value.text = info.linkSpeed.toString() + " Mbps"
     }
 
-    var mStatusChecker: Runnable = object : Runnable {
+
+    /**
+     * A repeater use to update wifi info in real-time.
+     * */
+    private var repeater: Runnable = object : Runnable {
         override fun run() {
             try {
                 getWifiInfo()
@@ -102,12 +111,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun startRepeatingTask() {
-        mStatusChecker.run()
-    }
+    private fun startRepeatingTask() = repeater.run()
+    private fun stopRepeatingTask() = mHandler?.removeCallbacks(repeater)
 
-
-    private fun stopRepeatingTask() {
-        mHandler?.removeCallbacks(mStatusChecker)
-    }
-    }
+}
