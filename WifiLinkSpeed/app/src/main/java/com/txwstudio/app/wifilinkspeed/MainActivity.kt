@@ -17,7 +17,6 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
-    private val toolBar: Toolbar ?= null
     private var mHandler: Handler? = null
     private val updateInterval = 1000
 
@@ -25,13 +24,12 @@ class MainActivity : AppCompatActivity() {
         setupTheme()
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
         setSupportActionBar()
+        setOnClickListener()
 
         getWifiInfo()
         mHandler = Handler()
-
-        setOnClickListener()
-
     }
 
     override fun onResume() {
@@ -57,10 +55,33 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setSupportActionBar() {
-        toolBar?.findViewById<Toolbar>(R.id.toolbar_main)
-        setSupportActionBar(toolBar)
+        setSupportActionBar(toolbar_main)
+        supportActionBar?.setDisplayShowTitleEnabled(false)
     }
 
+    private fun setOnClickListener() {
+        cardview_main_ssid.setOnClickListener {
+            startActivity(Intent(android.provider.Settings.ACTION_WIFI_SETTINGS))
+        }
+
+        cardview_main_openspeedtest.setOnClickListener{
+            var intent = packageManager.getLaunchIntentForPackage("org.zwanoo.android.speedtest")
+            if (intent != null) {
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                startActivity(intent)
+            } else {
+                intent = Intent(Intent.ACTION_VIEW).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                intent.data = Uri.parse("market://details?id=org.zwanoo.android.speedtest")
+                startActivity(intent)
+            }
+        }
+
+        cardview_main_openfastcom.setOnClickListener {
+            val builder = CustomTabsIntent.Builder()
+            val customTabsIntent = builder.build()
+            customTabsIntent.launchUrl(this, Uri.parse("https://fast.com"))
+        }
+    }
 
     private fun getWifiInfo() {
         val wifiManager = applicationContext.getSystemService(Context.WIFI_SERVICE) as WifiManager
@@ -85,32 +106,8 @@ class MainActivity : AppCompatActivity() {
         mStatusChecker.run()
     }
 
+
     private fun stopRepeatingTask() {
         mHandler?.removeCallbacks(mStatusChecker)
     }
-
-
-    private fun setOnClickListener() {
-        cardview_main_ssid.setOnClickListener {
-            startActivity(Intent(android.provider.Settings.ACTION_WIFI_SETTINGS))
-        }
-
-        cardview_main_openspeedtest.setOnClickListener{
-            var intent = packageManager.getLaunchIntentForPackage("org.zwanoo.android.speedtest")
-            if (intent != null) {
-                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                startActivity(intent)
-            } else {
-                intent = Intent(Intent.ACTION_VIEW).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                intent.setData(Uri.parse("market://details?id=org.zwanoo.android.speedtest"))
-                startActivity(intent)
-            }
-        }
-
-        cardview_main_openfastcom.setOnClickListener {
-            val builder = CustomTabsIntent.Builder()
-            val customTabsIntent = builder.build()
-            customTabsIntent.launchUrl(this, Uri.parse("https://fast.com"))
-        }
     }
-}
