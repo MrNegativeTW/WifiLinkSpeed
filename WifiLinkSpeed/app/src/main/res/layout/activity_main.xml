@@ -37,7 +37,6 @@
         android:clickable="true"
         android:focusable="true"
         android:foreground="?android:attr/selectableItemBackground"
-        android:onClick="openWifiSettings"
         app:cardBackgroundColor="#00FFFFFF"
         app:cardCornerRadius="8dp"
         app:cardElevation="0dp"
@@ -159,6 +158,18 @@
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintBottom_toTopOf="@id/cardview_main_openspeedtest"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
     <androidx.cardview.widget.CardView
         android:id="@+id/cardview_main_openspeedtest"
         android:layout_width="0dp"
@@ -168,7 +179,6 @@
         android:clickable="true"
         android:focusable="true"
         android:foreground="?android:attr/selectableItemBackground"
-        android:onClick="openSpeedTest"
         app:cardBackgroundColor="#00FFFFFF"
         app:cardCornerRadius="8dp"
         app:cardElevation="0dp"
@@ -213,7 +223,6 @@
         android:clickable="true"
         android:focusable="true"
         android:foreground="?android:attr/selectableItemBackground"
-        android:onClick="openFastCom"
         app:cardBackgroundColor="#00FFFFFF"
         app:cardCornerRadius="8dp"
         app:cardElevation="0dp"
@@ -248,5 +257,7 @@
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

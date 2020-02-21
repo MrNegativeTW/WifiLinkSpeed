@@ -8,10 +8,10 @@ import android.net.wifi.WifiManager
 import android.os.Build
 import android.os.Bundle
 import android.os.Handler
-import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import android.view.WindowManager
+import androidx.browser.customtabs.CustomTabsIntent
 import androidx.core.content.ContextCompat
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -29,6 +29,8 @@ class MainActivity : AppCompatActivity() {
 
         getWifiInfo()
         mHandler = Handler()
+
+        setOnClickListener()
 
     }
 
@@ -88,24 +90,27 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    fun openSpeedTest(view: View) {
-        var intent = packageManager.getLaunchIntentForPackage("org.zwanoo.android.speedtest")
-        if (intent != null) {
-            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-            startActivity(intent)
-        } else {
-            intent = Intent(Intent.ACTION_VIEW).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-            intent.setData(Uri.parse("market://details?id=org.zwanoo.android.speedtest"))
-            startActivity(intent)
+    private fun setOnClickListener() {
+        cardview_main_ssid.setOnClickListener {
+            startActivity(Intent(android.provider.Settings.ACTION_WIFI_SETTINGS))
         }
-    }
 
-    fun openFastCom(view: View) {
-        val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://fast.com"))
-        startActivity(intent)
-    }
+        cardview_main_openspeedtest.setOnClickListener{
+            var intent = packageManager.getLaunchIntentForPackage("org.zwanoo.android.speedtest")
+            if (intent != null) {
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                startActivity(intent)
+            } else {
+                intent = Intent(Intent.ACTION_VIEW).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                intent.setData(Uri.parse("market://details?id=org.zwanoo.android.speedtest"))
+                startActivity(intent)
+            }
+        }
 
-    fun openWifiSettings(view: View) {
-        startActivity(Intent(android.provider.Settings.ACTION_WIFI_SETTINGS))
+        cardview_main_openfastcom.setOnClickListener {
+            val builder = CustomTabsIntent.Builder()
+            val customTabsIntent = builder.build()
+            customTabsIntent.launchUrl(this, Uri.parse("https://fast.com"))
+        }
     }
 }
