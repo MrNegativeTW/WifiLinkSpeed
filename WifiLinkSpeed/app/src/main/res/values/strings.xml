@@ -6,13 +6,11 @@
     <string name="ssid_value">Unknown</string>
     <string name="rssi_title">RSSI</string>
     <string name="rssi_value">-- dBm</string>
-    <string name="linkspeed_title">LINK SPEED</string>
-    <string name="linkspeed_value">-- Mbps</string>
-    <string name="rxspeed_title">Rx Speed</string>
-    <string name="rxspeed_value">Unsupported</string>
-    <string name="txspeed_title">Tx Speed</string>
-    <string name="txspeed_value">Unsupported</string>
-
+    <string name="linkSpeed_title">LINK SPEED</string>
+    <string name="linkSpeed_value">-- Mbp</string>
+    <string name="moreDetail_title">Click for more info</string>
+    <string name="floatWindow_title">Floating Window</string>
+    <string name="floatWindow_value"></string>
 
     <string name="speedtest_title">Open</string>
     <string name="speedtest_value">SPEEDTEST</string>

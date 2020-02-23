@@ -10,6 +10,7 @@ import android.os.Bundle
 import android.os.Handler
 import androidx.appcompat.app.AppCompatActivity
 import android.view.WindowManager
+import android.widget.Toast
 import androidx.browser.customtabs.CustomTabsIntent
 import androidx.core.content.ContextCompat
 import kotlinx.android.synthetic.main.activity_main.*
@@ -18,6 +19,7 @@ class MainActivity : AppCompatActivity() {
 
     private var mHandler: Handler? = null
     private val updateInterval = 1000
+    private var floatWindowStatus = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         setupTheme()
@@ -82,6 +84,21 @@ class MainActivity : AppCompatActivity() {
             val customTabsIntent = builder.build()
             customTabsIntent.launchUrl(this, Uri.parse("https://fast.com"))
         }
+
+        cardview_main_moreInfo.setOnClickListener {
+            Toast.makeText(this, "cardview_main_moreInfo", Toast.LENGTH_SHORT).show()
+        }
+
+        cardview_main_floatWindow.setOnClickListener {
+            if (floatWindowStatus) {
+                floatWindowStatus = false
+                textview_floatWindow_value.text = "Disable"
+            } else if (!floatWindowStatus) {
+                floatWindowStatus = true
+                textview_floatWindow_value.text = "Enable"
+            }
+        }
+
     }
 
 
