@@ -1,5 +1,6 @@
 package com.txwstudio.app.wifilinkspeed
 
+import android.annotation.TargetApi
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
@@ -8,18 +9,21 @@ import android.net.wifi.WifiManager
 import android.os.Build
 import android.os.Bundle
 import android.os.Handler
-import androidx.appcompat.app.AppCompatActivity
+import android.provider.Settings
 import android.view.WindowManager
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.browser.customtabs.CustomTabsIntent
 import androidx.core.content.ContextCompat
 import kotlinx.android.synthetic.main.activity_main.*
+
 
 class MainActivity : AppCompatActivity() {
 
     private var mHandler: Handler? = null
     private val updateInterval = 1000
     private var floatWindowStatus = false
+    private val requestCodeOverlay = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         setupTheme()
@@ -90,17 +94,46 @@ class MainActivity : AppCompatActivity() {
         }
 
         cardview_main_floatWindow.setOnClickListener {
-            if (floatWindowStatus) {
-                floatWindowStatus = false
-                textview_floatWindow_value.text = "Disable"
-            } else if (!floatWindowStatus) {
-                floatWindowStatus = true
-                textview_floatWindow_value.text = "Enable"
+            if (checkOverlayPermission()) {
+                if (floatWindowStatus) {
+                    floatWindowStatus = false
+                    textview_floatWindow_value.text = "Disable"
+
+                    stopService(Intent(this, FloatWindowService::class.java))
+                } else if (!floatWindowStatus) {
+                    floatWindowStatus = true
+                    textview_floatWindow_value.text = "Enable"
+
+                    startService(Intent(this, FloatWindowService::class.java))
+
+                }
             }
         }
-
     }
 
+    private fun checkOverlayPermission(): Boolean {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
+            return true
+        }
+
+        if (!Settings.canDrawOverlays(this)) {
+            val myIntent = Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION)
+            myIntent.data = Uri.parse("package:$packageName")
+            startActivityForResult(myIntent, requestCodeOverlay)
+            return false
+        }
+        return true
+    }
+
+    @TargetApi(Build.VERSION_CODES.M)
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == requestCodeOverlay) {
+            if (Settings.canDrawOverlays(this)) {
+                startService(Intent(this, FloatWindowService::class.java))
+            }
+        }
+    }
 
     /**
      * Get current wifi info then set to text.
