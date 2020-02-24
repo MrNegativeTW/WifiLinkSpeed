@@ -4,13 +4,16 @@ import android.annotation.SuppressLint
 import android.app.Service
 import android.content.Context
 import android.content.Intent
-import android.graphics.Color
 import android.graphics.PixelFormat
+import android.net.wifi.WifiInfo
+import android.net.wifi.WifiManager
 import android.os.Build
+import android.os.Handler
 import android.os.IBinder
 import android.view.*
-import android.widget.LinearLayout
+import android.widget.TextView
 import android.widget.Toast
+import kotlinx.android.synthetic.main.service_float_window.*
 
 
 class FloatWindowService : Service() {
@@ -18,6 +21,10 @@ class FloatWindowService : Service() {
     private var windowManager: WindowManager? = null
     private var params: WindowManager.LayoutParams? = null
     private var floatLayout: View? = null
+
+    private var mHandler: Handler? = null
+    private var textViewRSSI: TextView? = null
+    private var textViewLinkSpeed: TextView? = null
 
     override fun onBind(intent: Intent?): IBinder? {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
@@ -29,8 +36,11 @@ class FloatWindowService : Service() {
 
         initWindowManager()
         initLayout()
+        getWifiInfo()
         layoutOnTouch()
 
+        startRepeatingTask()
+        mHandler = Handler()
         windowManager?.addView(floatLayout, params)
     }
 
@@ -62,8 +72,19 @@ class FloatWindowService : Service() {
      * */
     private fun initLayout() {
         floatLayout = LayoutInflater.from(application).inflate(R.layout.service_float_window, null)
+
+        textViewRSSI = floatLayout?.findViewById(R.id.textview_floatWindow_rssi_value)
+        textViewLinkSpeed = floatLayout?.findViewById(R.id.textview_floatWindow_linkSpeed_value)
     }
 
+    private fun getWifiInfo() {
+        val wifiManager = applicationContext.getSystemService(Context.WIFI_SERVICE) as WifiManager
+        val info: WifiInfo = wifiManager.connectionInfo
+
+        textViewRSSI?.text = info.rssi.toString() + " dBm"
+        textViewLinkSpeed?.text = info.linkSpeed.toString() + " Mbps"
+
+    }
 
     //TODO(performOnClick)
     @SuppressLint("ClickableViewAccessibility")
@@ -99,7 +120,24 @@ class FloatWindowService : Service() {
 
     override fun onDestroy() {
         super.onDestroy()
+        stopRepeatingTask()
         windowManager?.removeView(floatLayout)
         Toast.makeText(this, "Service onDestroy", Toast.LENGTH_SHORT).show()
     }
+
+    /**
+     * A repeater use to update wifi info in real-time.
+     * */
+    private var repeater: Runnable = object : Runnable {
+        override fun run() {
+            try {
+                getWifiInfo()
+            } finally {
+                mHandler!!.postDelayed(this, 1000)
+            }
+        }
+    }
+
+    private fun startRepeatingTask() = repeater.run()
+    private fun stopRepeatingTask() = mHandler?.removeCallbacks(repeater)
 }

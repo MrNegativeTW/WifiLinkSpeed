@@ -21,7 +21,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 class MainActivity : AppCompatActivity() {
 
     private var mHandler: Handler? = null
-    private val updateInterval = 1000
+    val updateInterval = 1000
     private var floatWindowStatus = false
     private val requestCodeOverlay = 0
 
