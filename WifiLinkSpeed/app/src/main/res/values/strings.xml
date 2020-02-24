@@ -10,7 +10,7 @@
     <string name="linkSpeed_value">-- Mbp</string>
     <string name="moreDetail_title">Click for more info</string>
     <string name="floatWindow_title">Floating Window</string>
-    <string name="floatWindow_value"></string>
+    <string name="floatWindow_value">Disable</string>
 
     <string name="speedtest_title">Open</string>
     <string name="speedtest_value">SPEEDTEST</string>
