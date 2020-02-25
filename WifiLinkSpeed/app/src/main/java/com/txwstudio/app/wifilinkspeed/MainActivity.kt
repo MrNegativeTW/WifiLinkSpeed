@@ -10,12 +10,14 @@ import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.provider.Settings
+import android.view.View
 import android.view.WindowManager
-import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.browser.customtabs.CustomTabsIntent
 import androidx.core.content.ContextCompat
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.dialog_moreinfo.view.*
 
 
 class MainActivity : AppCompatActivity() {
@@ -68,7 +70,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun setOnClickListener() {
         cardview_main_ssid.setOnClickListener {
-            startActivity(Intent(android.provider.Settings.ACTION_WIFI_SETTINGS))
+            startActivity(Intent(Settings.ACTION_WIFI_SETTINGS))
         }
 
         cardview_main_openspeedtest.setOnClickListener {
@@ -89,28 +91,53 @@ class MainActivity : AppCompatActivity() {
             customTabsIntent.launchUrl(this, Uri.parse("https://fast.com"))
         }
 
+        // Call moreInfoDialog
         cardview_main_moreInfo.setOnClickListener {
-            Toast.makeText(this, "cardview_main_moreInfo", Toast.LENGTH_SHORT).show()
+            moreInfoDialog()
         }
 
+        // Call checkOverlayPermission
         cardview_main_floatWindow.setOnClickListener {
             if (checkOverlayPermission()) {
                 if (floatWindowStatus) {
                     floatWindowStatus = false
-                    textview_floatWindow_value.text = "Disable"
-
+                    textview_floatWindow_value.text = getString(R.string.floatWindow_value)
                     stopService(Intent(this, FloatWindowService::class.java))
                 } else if (!floatWindowStatus) {
                     floatWindowStatus = true
-                    textview_floatWindow_value.text = "Enable"
-
+                    textview_floatWindow_value.text = getString(R.string.floatWindow_value_enable)
                     startService(Intent(this, FloatWindowService::class.java))
-
                 }
             }
         }
     }
 
+    /**
+     * Get more info from current wifi
+     * Include BSSID, Frequency , Device MAC, IP
+     * */
+    private fun moreInfoDialog() {
+        val wifiManager = applicationContext.getSystemService(Context.WIFI_SERVICE) as WifiManager
+        val info: WifiInfo = wifiManager.connectionInfo
+
+        val content = View.inflate(this, R.layout.dialog_moreinfo, null)
+        content.textview_dialogMoreInfo_bssid.text = info.bssid
+        content.textview_dialogMoreInfo_freq.text = info.frequency.toString()
+        content.textview_dialogMoreInfo_myMacAddress.text = info.macAddress
+        content.textview_dialogMoreInfo_ipAddress.text = info.ipAddress.toString()
+
+        val builder = AlertDialog.Builder(this)
+        builder.setView(content)
+        builder.create()
+        builder.show()
+    }
+
+
+    /**
+     * Deal with overlay window permission.
+     * @return True, if OS version is below M.
+     * @return False, if OS version is above M
+     * */
     private fun checkOverlayPermission(): Boolean {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
             return true
@@ -134,6 +161,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
+
 
     /**
      * Get current wifi info then set to text.

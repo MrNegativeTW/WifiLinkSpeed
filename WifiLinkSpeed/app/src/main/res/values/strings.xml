@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+<!--    Main Activity-->
     <string name="app_name">WiFi Link Speed</string>
     <string name="app_name_toolbar">WiFi LINK SPEED</string>
     <string name="ssid_title">YOU ARE ON</string>
@@ -11,10 +12,22 @@
     <string name="moreDetail_title">Click for more info</string>
     <string name="floatWindow_title">Floating Window</string>
     <string name="floatWindow_value">Disable</string>
+    <string name="floatWindow_value_enable">Enable</string>
 
     <string name="speedtest_title">Open</string>
     <string name="speedtest_value">SPEEDTEST</string>
     <string name="fastcom_title">Open</string>
     <string name="fastcom_value">FAST.com</string>
+    
+<!--    More Info Dialog-->
+    <string name="moreinfoDialog_Title">More Info</string>
+    <string name="moreinfoDialog_bssid">BSSID: </string>
+    <string name="moreinfoDialog_freq">Frequency: </string>
+    <string name="moreinfoDialog_myMacAddress">My MAC Address: </string>
+    <string name="moreinfoDialog_ipAddress">IP Address: </string>
 
+<!--    Global-->
+    <string name="global_ok">OK</string>
+    <string name="global_done">Done</string>
+    <string name="global_cancel">Cancel</string>
 </resources>
