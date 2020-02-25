@@ -24,7 +24,8 @@
     <string name="moreinfoDialog_bssid">BSSID: </string>
     <string name="moreinfoDialog_freq">Frequency: </string>
     <string name="moreinfoDialog_myMacAddress">My MAC Address: </string>
-    <string name="moreinfoDialog_ipAddress">IP Address: </string>
+    <string name="moreinfoDialog_inIP">Internal IP: </string>
+    <string name="moreinfoDialog_exIP">External IP: </string>
 
 <!--    Global-->
     <string name="global_ok">OK</string>

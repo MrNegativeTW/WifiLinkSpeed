@@ -9,9 +9,11 @@ import android.net.wifi.WifiManager
 import android.os.Build
 import android.os.Bundle
 import android.os.Handler
+import android.os.StrictMode
 import android.provider.Settings
 import android.view.View
 import android.view.WindowManager
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.browser.customtabs.CustomTabsIntent
@@ -31,6 +33,7 @@ class MainActivity : AppCompatActivity() {
         setupTheme()
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        overrideStrictMode()
 
         setSupportActionBar()
         setOnClickListener()
@@ -63,6 +66,11 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    private fun overrideStrictMode() {
+        val policy = StrictMode.ThreadPolicy.Builder().permitAll().build()
+        StrictMode.setThreadPolicy(policy)
+    }
+
     private fun setSupportActionBar() {
         setSupportActionBar(toolbar_main)
         supportActionBar?.setDisplayShowTitleEnabled(false)
@@ -93,6 +101,7 @@ class MainActivity : AppCompatActivity() {
 
         // Call moreInfoDialog
         cardview_main_moreInfo.setOnClickListener {
+            Toast.makeText(this, "Hold...", Toast.LENGTH_SHORT).show()
             moreInfoDialog()
         }
 
@@ -124,7 +133,13 @@ class MainActivity : AppCompatActivity() {
         content.textview_dialogMoreInfo_bssid.text = info.bssid
         content.textview_dialogMoreInfo_freq.text = info.frequency.toString()
         content.textview_dialogMoreInfo_myMacAddress.text = info.macAddress
-        content.textview_dialogMoreInfo_ipAddress.text = info.ipAddress.toString()
+
+
+        NetworkUtil().getInternalIpAddress2()
+
+
+        content.textview_dialogMoreInfo_inIP.text = "0"
+//        content.textview_dialogMoreInfo_exIP.text = NetworkUtil().getExternalIpAddress()
 
         val builder = AlertDialog.Builder(this)
         builder.setView(content)
