@@ -4,13 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="?attr/colorPrimary"
     tools:context=".MainActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar_main"
+        style="@style/AppTheme"
         android:layout_width="match_parent"
         android:layout_height="32dp"
-        android:background="@color/lightMode_colorPrimary"
+        android:background="?attr/colorPrimary"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -21,6 +23,7 @@
             android:layout_gravity="center"
             android:fontFamily="@font/exo_2_bold"
             android:text="@string/app_name_toolbar"
+            android:textColor="@color/speedtest_main_grey"
             tools:layout_editor_absoluteX="156dp"
             tools:layout_editor_absoluteY="6dp" />
 
@@ -159,15 +162,15 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
-        android:visibility="gone"
         android:id="@+id/cardview_main_moreInfo"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
         android:clickable="true"
         android:focusable="true"
         android:foreground="?android:attr/selectableItemBackground"
+        android:visibility="gone"
         app:cardBackgroundColor="#F0F0F0"
         app:cardCornerRadius="8dp"
         app:cardElevation="0dp"
@@ -183,8 +186,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:gravity="center">
+            android:gravity="center"
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/textview_moreDetail_title"
@@ -200,19 +203,19 @@
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
         android:background="?android:attr/listDivider"
-        app:layout_constraintTop_toBottomOf="@id/cardview_main_moreInfo"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cardview_main_moreInfo" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardview_main_floatWindow"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:clickable="true"
         android:focusable="true"
@@ -256,14 +259,14 @@
         android:id="@+id/divider2"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:layout_marginTop="8dp"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:background="?android:attr/listDivider"
-        app:layout_constraintTop_toBottomOf="@id/cardview_main_floatWindow"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cardview_main_floatWindow" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardview_main_openspeedtest"
@@ -281,10 +284,10 @@
         app:contentPaddingLeft="@dimen/card_content_padding_horizontal"
         app:contentPaddingRight="@dimen/card_content_padding_horizontal"
         app:contentPaddingTop="@dimen/card_content_padding_vertical"
-        app:layout_constraintTop_toBottomOf="@id/divider2"
         app:layout_constraintEnd_toStartOf="@id/cardview_main_openfastcom"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/divider2">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -325,10 +328,10 @@
         app:contentPaddingLeft="@dimen/card_content_padding_horizontal"
         app:contentPaddingRight="@dimen/card_content_padding_horizontal"
         app:contentPaddingTop="@dimen/card_content_padding_vertical"
-        app:layout_constraintTop_toBottomOf="@id/divider2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@id/cardview_main_openspeedtest">
+        app:layout_constraintStart_toEndOf="@id/cardview_main_openspeedtest"
+        app:layout_constraintTop_toBottomOf="@id/divider2">
 
         <LinearLayout
             android:layout_width="match_parent"

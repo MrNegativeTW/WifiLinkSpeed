@@ -16,6 +16,7 @@ import android.view.WindowManager
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.browser.customtabs.CustomTabsIntent
 import androidx.core.content.ContextCompat
 import kotlinx.android.synthetic.main.activity_main.*
@@ -56,6 +57,10 @@ class MainActivity : AppCompatActivity() {
     /** App Initial */
     private fun setupTheme() {
         setTheme(R.style.AppTheme_NoActionBar)
+
+        // Enable Dark mode in dev
+//        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+//        delegate.localNightMode = AppCompatDelegate.MODE_NIGHT_YES
 
         // Fix white status bar when sdk <= 21
         if (Build.VERSION.SDK_INT == Build.VERSION_CODES.LOLLIPOP) {
