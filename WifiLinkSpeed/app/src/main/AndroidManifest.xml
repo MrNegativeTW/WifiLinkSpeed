@@ -4,8 +4,16 @@
     package="com.txwstudio.app.wifilinkspeed">
 
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION " />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+
+    <!-- Sample AdMob App ID: ca-app-pub-3940256099942544~3347511713 -->
+    <!-- Sample Banner AD ID: ca-app-pub-3940256099942544/6300978111 -->
+
+    <!-- My AdMob App ID: ca-app-pub-3716797788275517~9255969265 -->
+    <!-- addCourseAdView AD ID: ca-app-pub-3716797788275517/5177123453 -->
 
     <application
         android:allowBackup="true"
@@ -15,6 +23,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme_NoActionBar"
         tools:ignore="GoogleAppIndexingWarning">
+
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-3716797788275517~9255969265" />
+
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,9 +35,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
+
+        <service android:name=".FloatWindowService" />
+
     </application>
 
 </manifest>

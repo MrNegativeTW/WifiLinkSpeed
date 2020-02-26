@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="24dp">
+
+    <!-- BSSID-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/exo"
+        android:text="@string/moreinfoDialog_bssid" />
+
+    <TextView
+        android:id="@+id/textview_dialogMoreInfo_bssid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="@font/exo_semibold"
+        android:text="60:A4:00:00:00:00" />
+
+    <!-- Frequency-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/exo"
+        android:text="@string/moreinfoDialog_freq" />
+
+    <TextView
+        android:id="@+id/textview_dialogMoreInfo_freq"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="@font/exo_semibold"
+        android:text="5.1 Ghz" />
+
+    <!-- My MAC Address-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/exo"
+        android:text="@string/moreinfoDialog_myMacAddress" />
+
+    <TextView
+        android:id="@+id/textview_dialogMoreInfo_myMacAddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="@font/exo_semibold"
+        android:text="60:A4:00:00:00:00" />
+
+    <!--Internal IP-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/exo"
+        android:text="@string/moreinfoDialog_inIP" />
+
+    <TextView
+        android:id="@+id/textview_dialogMoreInfo_inIP"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="@font/exo_semibold"
+        android:text="192.168.0.0" />
+
+    <!-- External IP-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/exo"
+        android:text="@string/moreinfoDialog_exIP" />
+
+    <TextView
+        android:id="@+id/textview_dialogMoreInfo_exIP"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="@font/exo_semibold"
+        android:text="180.255.255.255" />
+
+</LinearLayout>

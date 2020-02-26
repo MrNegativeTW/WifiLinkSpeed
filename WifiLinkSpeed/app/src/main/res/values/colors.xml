@@ -4,8 +4,6 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
 
-    <color name="backgroundColor">#0b0c1b</color>
-
     <!-- Dark Mode -->
     <color name="darkMode_colorPrimary">#313236</color>
     <color name="darkMode_colorPrimaryDark">#232323</color>
@@ -19,4 +17,31 @@
     <color name="white">#ffffff</color>
     <color name="gray">#7d8492</color>
     <color name="fabButtonColor">#52545a</color>
+
+
+    <!-- Speedtest Color Identity -->
+    <color name="speedtest_main_blackBlue">#0b0c1b</color>
+    <color name="speedtest_main_navy">#1A1B2E</color>
+    <color name="speedtest_main_grey">#9193A8</color>
+    <color name="speedtest_main_blue">#1CBFFF</color>
+    <color name="speedtest_main_purple">#BF71FF</color>
+    <color name="speedtest_main_green">#6AFFF3</color>
+    <color name="speedtest_main_yellow">#FFF38E</color>
+
+    <color name="speedtest_main_darkNavy">#141526</color>
+    <color name="speedtest_main_lightNavy">#26273B</color>
+    <color name="speedtest_main_flatBlue">#232F4E</color>
+    <color name="speedtest_main_transparentGrey">#809193A8</color>
+
+    <color name="speedtest_lightBg_blue">#1FA4E9</color>
+    <color name="speedtest_lightBg_purple">#A244DA</color>
+    <color name="speedtest_lightBg_green">#2DE5D1</color>
+    <color name="speedtest_lightBg_yellow">#EBDD52</color>
+
+    <color name="speedtest_ui_red">#FF3366</color>
+    <color name="speedtest_ui_gold">#FFB834</color>
+    <color name="speedtest_ui_green">#19BF78</color>
+    <color name="speedtest_ui_blue">#01A3E5</color>
+    <color name="speedtest_ui_pink">#E97BCE</color>
+    <color name="speedtest_ui_purple">#6B3295</color>
 </resources>

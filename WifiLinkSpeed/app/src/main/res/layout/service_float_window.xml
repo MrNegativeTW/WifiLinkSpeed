@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="8dp"
+    android:background="@color/speedtest_main_transparentGrey">
+
+    <TextView
+        android:id="@+id/textview_floatWindow_ssid_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:fontFamily="@font/exo"
+        android:text="@string/ssid_value" />
+
+    <TextView
+        android:id="@+id/textview_floatWindow_rssi_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:fontFamily="@font/exo"
+        android:text="@string/rssi_value" />
+
+    <TextView
+        android:id="@+id/textview_floatWindow_linkSpeed_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:fontFamily="@font/exo"
+        android:text="@string/linkSpeed_value" />
+</LinearLayout>

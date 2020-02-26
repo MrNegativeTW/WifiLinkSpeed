@@ -1,24 +1,12 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat">
         <!-- Customize your theme here. -->
-        <item name="android:windowLightStatusBar">true</item>
-        <item name="colorPrimary">@color/lightMode_colorPrimary</item>
-        <item name="colorPrimaryDark">@color/lightMode_colorPrimaryDark</item>
-        <item name="colorAccent">@color/lightMode_colorAccent</item>
+        <item name="colorPrimary">@color/speedtest_main_blackBlue</item>
+        <item name="colorPrimaryDark">@color/speedtest_main_blackBlue</item>
+        <item name="colorAccent">@color/speedtest_main_green</item>
     </style>
-
-    <!-- Dark Theme (Default) -->
-    <style name="AppTheme_Dark" parent="Theme.AppCompat">
-        <item name="colorPrimary">@color/darkMode_colorPrimaryDark</item>
-        <item name="colorPrimaryDark">@color/darkMode_colorPrimaryDark</item>
-        <item name="colorAccent">@color/darkMode_colorAccent</item>
-<!--        <item name="fabButtonColor">@color/fabButtonColor</item>-->
-<!--        <item name="PopupOverlay">@style/AppTheme.PopupOverlay</item>-->
-<!--        <item name="iconColor">@color/white</item>-->
-    </style>
-
     <style name="AppTheme_NoActionBar" parent="AppTheme">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
