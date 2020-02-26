@@ -26,6 +26,17 @@
     <string name="moreinfoDialog_myMacAddress">My MAC Address: </string>
     <string name="moreinfoDialog_inIP">Internal IP: </string>
     <string name="moreinfoDialog_exIP">External IP: </string>
+    
+<!--    About Dialog-->
+    <string name="aboutDialog_versionTitle">Version</string>
+    <string name="aboutDialog_creditTitle">Credit</string>
+    <string name="aboutDialog_createdByTitle">Created By</string>
+    <string name="aboutDialog_createdByValue">Trevor</string>
+    <string name="aboutDialog_creditValueIcon">Icon made by Freepik from FlatIcon</string>
+<!--    https://www.flaticon.com/free-icon/acceleration_181423。-->
+。
+<!--    Menu item-->
+    <string name="menu_aboutValue">About</string>
 
 <!--    Global-->
     <string name="global_ok">OK</string>

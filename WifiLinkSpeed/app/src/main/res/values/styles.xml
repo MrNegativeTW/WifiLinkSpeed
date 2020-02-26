@@ -6,6 +6,7 @@
         <item name="colorPrimary">@color/speedtest_main_blackBlue</item>
         <item name="colorPrimaryDark">@color/speedtest_main_blackBlue</item>
         <item name="colorAccent">@color/speedtest_main_green</item>
+        <item name="alertDialogBackground">@color/speedtest_main_navy</item>
     </style>
     <style name="AppTheme_NoActionBar" parent="AppTheme">
         <item name="windowActionBar">false</item>

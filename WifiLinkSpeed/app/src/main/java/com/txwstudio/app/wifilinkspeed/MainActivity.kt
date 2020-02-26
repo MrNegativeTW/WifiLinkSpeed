@@ -11,6 +11,8 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.StrictMode
 import android.provider.Settings
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.view.WindowManager
 import android.widget.Toast
@@ -42,7 +44,9 @@ class MainActivity : AppCompatActivity() {
 
         overrideStrictMode()
         setSupportActionBar()
+
         setOnClickListener()
+
         initMobileAds()
         setupAds()
 
@@ -85,6 +89,7 @@ class MainActivity : AppCompatActivity() {
     private fun setSupportActionBar() {
         setSupportActionBar(toolbar_main)
         supportActionBar?.setDisplayShowTitleEnabled(false)
+        toolbar_main.inflateMenu(R.menu.menu_layout)
     }
 
     private fun setOnClickListener() {
@@ -197,6 +202,32 @@ class MainActivity : AppCompatActivity() {
                 startService(Intent(this, FloatWindowService::class.java))
             }
         }
+    }
+
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        super.onCreateOptionsMenu(menu)
+        menuInflater.inflate(R.menu.menu_layout, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.menu_about -> aboutDialog()
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
+    /**
+     * AlertDialog that contains the basic information of the app.
+     * */
+    private fun aboutDialog() {
+        val content = View.inflate(this, R.layout.dialog_about, null)
+
+        val builder = AlertDialog.Builder(this)
+        builder.setView(content)
+        builder.create()
+        builder.show()
     }
 
 

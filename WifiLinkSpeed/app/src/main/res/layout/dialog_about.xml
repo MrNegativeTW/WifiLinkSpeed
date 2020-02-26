@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?attr/alertDialogBackground"
+    android:orientation="vertical"
+    android:padding="24dp">
+
+    <!--    Version Code-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/exo"
+        android:text="@string/aboutDialog_versionTitle" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/exo_semibold"
+        android:text="1.0"
+        android:textColor="?attr/colorAccent"
+        android:textSize="18sp" />
+
+    <!--    Credit-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/exo"
+        android:text="@string/aboutDialog_createdByTitle" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/exo_semibold"
+        android:text="@string/aboutDialog_createdByValue"
+        android:textColor="?attr/colorAccent"
+        android:textSize="18sp" />
+
+    <!--    Credit-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/exo"
+        android:text="@string/aboutDialog_creditTitle" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/exo_semibold"
+        android:text="@string/aboutDialog_creditValueIcon"
+        android:textColor="?attr/colorAccent"
+        android:textSize="18sp"/>
+
+</LinearLayout>
