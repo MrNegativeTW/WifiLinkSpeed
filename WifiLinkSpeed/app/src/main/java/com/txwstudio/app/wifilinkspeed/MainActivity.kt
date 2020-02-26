@@ -121,7 +121,14 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    //TODO(Get IP, can't functioning now.)
     /**
+     * Bug:
+     * 1. Get internal ip will get cellular ip.
+     * 2. Get External ip can stop at main thread,
+     * @fun overrideStrictMode
+     * 3. Unable to aget device MAC address
+     *
      * Get more info from current wifi
      * Include BSSID, Frequency , Device MAC, IP
      * */
