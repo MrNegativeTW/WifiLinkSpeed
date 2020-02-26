@@ -19,6 +19,11 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.browser.customtabs.CustomTabsIntent
 import androidx.core.content.ContextCompat
+import androidx.core.view.size
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdSize
+import com.google.android.gms.ads.AdView
+import com.google.android.gms.ads.MobileAds
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.dialog_moreinfo.view.*
 
@@ -34,10 +39,12 @@ class MainActivity : AppCompatActivity() {
         setupTheme()
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        overrideStrictMode()
 
+        overrideStrictMode()
         setSupportActionBar()
         setOnClickListener()
+        initMobileAds()
+        setupAds()
 
         getWifiInfo()
         mHandler = Handler()
@@ -52,7 +59,6 @@ class MainActivity : AppCompatActivity() {
         super.onPause()
         stopRepeatingTask()
     }
-
 
     /** App Initial */
     private fun setupTheme() {
@@ -125,6 +131,10 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
+
+    private fun initMobileAds()  = MobileAds.initialize(this)
+    private fun setupAds() = adview_main_ad.loadAd(AdRequest.Builder().build())
+
 
     //TODO(Get IP, can't functioning now.)
     /**
