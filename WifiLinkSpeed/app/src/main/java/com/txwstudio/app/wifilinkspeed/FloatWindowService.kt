@@ -20,11 +20,13 @@ class FloatWindowService : Service() {
 
     private var windowManager: WindowManager? = null
     private var params: WindowManager.LayoutParams? = null
-    private var floatLayout: View? = null
 
-    private var mHandler: Handler? = null
+    private var floatLayout: View? = null
+    private var textViewSSID: TextView? = null
     private var textViewRSSI: TextView? = null
     private var textViewLinkSpeed: TextView? = null
+
+    private var mHandler: Handler? = null
 
     override fun onBind(intent: Intent?): IBinder? {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
@@ -32,16 +34,21 @@ class FloatWindowService : Service() {
 
     override fun onCreate() {
         super.onCreate()
-        Toast.makeText(this, "Service onCreate", Toast.LENGTH_SHORT).show()
 
         initWindowManager()
         initLayout()
-        getWifiInfo()
         layoutOnTouch()
 
-        startRepeatingTask()
         mHandler = Handler()
         windowManager?.addView(floatLayout, params)
+
+        startRepeatingTask()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        stopRepeatingTask()
+        windowManager?.removeView(floatLayout)
     }
 
 
@@ -73,20 +80,14 @@ class FloatWindowService : Service() {
     private fun initLayout() {
         floatLayout = LayoutInflater.from(application).inflate(R.layout.service_float_window, null)
 
+        textViewSSID = floatLayout?.findViewById(R.id.textview_floatWindow_ssid_value)
         textViewRSSI = floatLayout?.findViewById(R.id.textview_floatWindow_rssi_value)
         textViewLinkSpeed = floatLayout?.findViewById(R.id.textview_floatWindow_linkSpeed_value)
     }
 
-    private fun getWifiInfo() {
-        val wifiManager = applicationContext.getSystemService(Context.WIFI_SERVICE) as WifiManager
-        val info: WifiInfo = wifiManager.connectionInfo
-
-        textViewRSSI?.text = info.rssi.toString() + " dBm"
-        textViewLinkSpeed?.text = info.linkSpeed.toString() + " Mbps"
-
-    }
-
-    //TODO(performOnClick)
+    /**
+     * Move-able overlay
+     * */
     @SuppressLint("ClickableViewAccessibility")
     private fun layoutOnTouch() {
         var touchedX: Float? = null
@@ -118,12 +119,15 @@ class FloatWindowService : Service() {
     }
 
 
-    override fun onDestroy() {
-        super.onDestroy()
-        stopRepeatingTask()
-        windowManager?.removeView(floatLayout)
-        Toast.makeText(this, "Service onDestroy", Toast.LENGTH_SHORT).show()
+    private fun getWifiInfo() {
+        val wifiManager = applicationContext.getSystemService(Context.WIFI_SERVICE) as WifiManager
+        val info: WifiInfo = wifiManager.connectionInfo
+
+        textViewSSID?.text = info.ssid.substring(1, info.ssid.length - 1)
+        textViewRSSI?.text = "${info.rssi} dBm"
+        textViewLinkSpeed?.text = "${info.linkSpeed} Mbps"
     }
+
 
     /**
      * A repeater use to update wifi info in real-time.
