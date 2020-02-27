@@ -11,21 +11,21 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.StrictMode
 import android.provider.Settings
+import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.view.WindowManager
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.app.AppCompatDelegate
 import androidx.browser.customtabs.CustomTabsIntent
 import androidx.core.content.ContextCompat
-import androidx.core.view.size
 import com.google.android.gms.ads.AdRequest
-import com.google.android.gms.ads.AdSize
-import com.google.android.gms.ads.AdView
 import com.google.android.gms.ads.MobileAds
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.dialog_moreinfo.view.*
+import java.lang.Exception
 
 
 class MainActivity : AppCompatActivity() {
@@ -42,7 +42,9 @@ class MainActivity : AppCompatActivity() {
 
         overrideStrictMode()
         setSupportActionBar()
+
         setOnClickListener()
+
         initMobileAds()
         setupAds()
 
@@ -85,11 +87,15 @@ class MainActivity : AppCompatActivity() {
     private fun setSupportActionBar() {
         setSupportActionBar(toolbar_main)
         supportActionBar?.setDisplayShowTitleEnabled(false)
+        toolbar_main.inflateMenu(R.menu.menu_layout)
     }
 
     private fun setOnClickListener() {
         cardview_main_ssid.setOnClickListener {
-            startActivity(Intent(Settings.ACTION_WIFI_SETTINGS))
+            val intent = Intent(Settings.ACTION_WIFI_SETTINGS)
+            try {
+                startActivity(intent)
+            } catch (e: Exception) {}
         }
 
         cardview_main_openspeedtest.setOnClickListener {
@@ -197,6 +203,32 @@ class MainActivity : AppCompatActivity() {
                 startService(Intent(this, FloatWindowService::class.java))
             }
         }
+    }
+
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        super.onCreateOptionsMenu(menu)
+        menuInflater.inflate(R.menu.menu_layout, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.menu_about -> aboutDialog()
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
+    /**
+     * AlertDialog that contains the basic information of the app.
+     * */
+    private fun aboutDialog() {
+        val content = View.inflate(this, R.layout.dialog_about, null)
+
+        val builder = AlertDialog.Builder(this)
+        builder.setView(content)
+        builder.create()
+        builder.show()
     }
 
 
