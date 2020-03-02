@@ -14,7 +14,7 @@
     <string name="floatWindow_value">Disable</string>
     <string name="floatWindow_value_enable">Enable</string>
 
-    <string name="speedtest_title">Open</string>
+    <string name="speedtest_title">Open / Install</string>
     <string name="speedtest_value">SPEEDTEST</string>
     <string name="fastcom_title">Open</string>
     <string name="fastcom_value">FAST.com</string>
