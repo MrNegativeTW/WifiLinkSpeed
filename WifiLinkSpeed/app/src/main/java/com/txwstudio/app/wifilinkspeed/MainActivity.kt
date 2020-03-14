@@ -111,9 +111,17 @@ class MainActivity : AppCompatActivity() {
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                 startActivity(intent)
             } else {
-                intent = Intent(Intent.ACTION_VIEW).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                intent.data = Uri.parse("market://details?id=org.zwanoo.android.speedtest")
-                startActivity(intent)
+                val builder = AlertDialog.Builder(this)
+                builder.setTitle(R.string.speedtestDialog_Title)
+                builder.setMessage(R.string.speedtestDialog_Meg)
+                builder.setPositiveButton(R.string.global_yes){dialog, id ->
+                    intent = Intent(Intent.ACTION_VIEW).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                    intent?.data = Uri.parse("market://details?id=org.zwanoo.android.speedtest")
+                    startActivity(intent)
+                }
+                builder.setNegativeButton(R.string.global_no){dialog, id ->  }
+
+                builder.show()
             }
         }
 

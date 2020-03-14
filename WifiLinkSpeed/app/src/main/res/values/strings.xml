@@ -13,7 +13,11 @@
     <string name="shortcuts_title">Shortcuts to &#8230;</string>
     <string name="speedtest_value">Speedtest</string>
     <string name="fastcom_value">Fast.com</string>
-    
+
+<!--    Speedtest 404 Dialog-->
+    <string name="speedtestDialog_Title">Speedtest Not Found</string>
+    <string name="speedtestDialog_Meg">Install from Google Play?</string>
+
 <!--    More Info Dialog-->
     <string name="moreinfoDialog_Title">More Info</string>
     <string name="moreinfoDialog_bssid">BSSID: </string>
@@ -35,6 +39,8 @@
 
 <!--    Global-->
     <string name="global_ok">OK</string>
+    <string name="global_yes">yes</string>
+    <string name="global_no">No</string>
     <string name="global_done">Done</string>
     <string name="global_cancel">Cancel</string>
 </resources>
