@@ -26,6 +26,7 @@ import com.google.android.gms.ads.MobileAds
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.dialog_moreinfo.view.*
 import java.lang.Exception
+import java.net.URL
 
 
 class MainActivity : AppCompatActivity() {
@@ -70,13 +71,13 @@ class MainActivity : AppCompatActivity() {
 //        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
 //        delegate.localNightMode = AppCompatDelegate.MODE_NIGHT_YES
 
-        // Fix white status bar when sdk <= 21
-//        if (Build.VERSION.SDK_INT == Build.VERSION_CODES.LOLLIPOP) {
-//            val window = this.window
-//            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
-//            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
-//            window.statusBarColor = ContextCompat.getColor(this, R.color.darkMode_colorPrimary)
-//        }
+//         Fix white status bar when sdk <= 21
+        if (Build.VERSION.SDK_INT == Build.VERSION_CODES.LOLLIPOP) {
+            val window = this.window
+            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
+            window.statusBarColor = ContextCompat.getColor(this, R.color.gray)
+        }
     }
 
     private fun overrideStrictMode() {
@@ -114,12 +115,6 @@ class MainActivity : AppCompatActivity() {
             val builder = CustomTabsIntent.Builder()
             val customTabsIntent = builder.build()
             customTabsIntent.launchUrl(this, Uri.parse("https://fast.com"))
-        }
-
-        // Call moreInfoDialog
-        cardview_main_moreInfo.setOnClickListener {
-            Toast.makeText(this, "Hold...", Toast.LENGTH_SHORT).show()
-            moreInfoDialog()
         }
 
         // Call checkOverlayPermission
@@ -240,6 +235,7 @@ class MainActivity : AppCompatActivity() {
         val info: WifiInfo = wifiManager.connectionInfo
 
         textview_ssid_value.text = info.ssid.substring(1, info.ssid.length - 1)
+        textview_bssid_value.text = info.bssid
         textview_rssi_value.text = info.rssi.toString() + " dBm"
         textview_linkspeed_value.text = info.linkSpeed.toString() + " Mbps"
     }
@@ -263,7 +259,8 @@ class MainActivity : AppCompatActivity() {
 
     private fun getUnsplashRandomPhoto() {
         // https://source.unsplash.com/random
-        cardview_main_ssid.resources
+        val url = URL("https://source.unsplash.com/random")
+        linearLayout_main_ssid.setBackgroundResource()
     }
 
 }

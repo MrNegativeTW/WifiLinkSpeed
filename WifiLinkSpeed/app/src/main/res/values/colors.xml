@@ -4,6 +4,7 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
 
+    <color name="toolbarTitle">#A0A0A0</color>
     <color name="activityBackground">#F2F2F2</color>
     <color name="sectionBackground">#0F4C81</color>
 

@@ -23,46 +23,35 @@
             android:layout_gravity="center"
             android:fontFamily="@font/exo_2_bold"
             android:text="@string/app_name_toolbar"
-            android:textColor="@color/speedtest_main_grey"
+            android:textColor="?attr/toolbarTitle"
             tools:layout_editor_absoluteX="156dp"
             tools:layout_editor_absoluteY="6dp" />
-
     </androidx.appcompat.widget.Toolbar>
 
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardview_main_ssid"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
         android:clickable="true"
         android:focusable="true"
         android:foreground="?android:attr/selectableItemBackground"
         app:cardBackgroundColor="?attr/sectionBackground"
         app:cardCornerRadius="8dp"
-        app:cardElevation="0dp"
-        app:contentPaddingBottom="@dimen/card_content_padding_vertical"
-        app:contentPaddingLeft="@dimen/card_content_padding_horizontal"
-        app:contentPaddingRight="@dimen/card_content_padding_horizontal"
-        app:contentPaddingTop="@dimen/card_content_padding_vertical"
+        app:cardElevation="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/toolbar_main">
 
         <LinearLayout
+            android:id="@+id/linearLayout_main_ssid"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity=""
+            android:layout_height="match_parent"
+            android:gravity="center"
             android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/textview_ssid_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/exo"
-                android:text="@string/ssid_title" />
 
             <TextView
                 android:id="@+id/textview_ssid_value"
@@ -72,234 +61,160 @@
                 android:text="@string/ssid_value"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
+            <TextView
+                android:id="@+id/textview_bssid_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/exo_semibold"
+                android:text="30:B5:C2:84:A0:9D"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardview_main_rssi"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
         android:clickable="true"
         android:focusable="true"
         android:foreground="?android:attr/selectableItemBackground"
         app:cardBackgroundColor="?attr/sectionBackground"
         app:cardCornerRadius="8dp"
-        app:cardElevation="0dp"
-        app:contentPaddingBottom="@dimen/card_content_padding_vertical"
-        app:contentPaddingLeft="@dimen/card_content_padding_horizontal"
-        app:contentPaddingRight="@dimen/card_content_padding_horizontal"
-        app:contentPaddingTop="@dimen/card_content_padding_vertical"
-        app:layout_constraintEnd_toStartOf="@id/cardview_main_linkspeed"
+        app:cardElevation="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/cardview_main_ssid">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/textview_rssi_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/exo"
-                android:text="@string/rssi_title" />
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:weightSum="2">
 
             <TextView
                 android:id="@+id/textview_rssi_value"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:fontFamily="@font/exo_semibold"
                 android:text="@string/rssi_value"
+                android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large" />
-
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardview_main_linkspeed"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:clickable="true"
-        android:focusable="true"
-        android:foreground="?android:attr/selectableItemBackground"
-        app:cardBackgroundColor="?attr/sectionBackground"
-        app:cardCornerRadius="8dp"
-        app:cardElevation="0dp"
-        app:contentPaddingBottom="@dimen/card_content_padding_vertical"
-        app:contentPaddingLeft="@dimen/card_content_padding_horizontal"
-        app:contentPaddingRight="@dimen/card_content_padding_horizontal"
-        app:contentPaddingTop="@dimen/card_content_padding_vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/cardview_main_rssi"
-        app:layout_constraintTop_toBottomOf="@id/cardview_main_ssid">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/textview_linkspeed_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/exo"
-                android:text="@string/linkSpeed_title" />
 
             <TextView
                 android:id="@+id/textview_linkspeed_value"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:fontFamily="@font/exo_semibold"
                 android:text="@string/linkSpeed_value"
+                android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large" />
-
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardview_main_moreInfo"
-        android:layout_width="0dp"
+
+    <TextView
+        android:id="@+id/textview_floatWindow_title"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:clickable="true"
-        android:focusable="true"
-        android:foreground="?android:attr/selectableItemBackground"
-        android:visibility="gone"
-        app:cardBackgroundColor="#F0F0F0"
-        app:cardCornerRadius="8dp"
-        app:cardElevation="0dp"
-        app:contentPaddingBottom="@dimen/card_content_padding_vertical"
-        app:contentPaddingLeft="@dimen/card_content_padding_horizontal"
-        app:contentPaddingRight="@dimen/card_content_padding_horizontal"
-        app:contentPaddingTop="@dimen/card_content_padding_vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:fontFamily="@font/exo"
+        android:text="@string/floatWindow_title"
+        android:textColor="?attr/sectionTitle"
+        android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cardview_main_rssi">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/textview_moreDetail_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/exo"
-                android:text="@string/moreDetail_title" />
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
-
-    <View
-        android:id="@+id/divider_main_moreDetail"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:background="?android:attr/listDivider"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cardview_main_moreInfo" />
+        app:layout_constraintTop_toBottomOf="@+id/cardview_main_rssi" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardview_main_floatWindow"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:clickable="true"
-        android:focusable="true"
-        android:foreground="?android:attr/selectableItemBackground"
-        app:cardBackgroundColor="#00FFFFFF"
-        app:cardCornerRadius="8dp"
-        app:cardElevation="0dp"
-        app:contentPaddingBottom="@dimen/card_content_padding_vertical"
-        app:contentPaddingLeft="@dimen/card_content_padding_horizontal"
-        app:contentPaddingRight="@dimen/card_content_padding_horizontal"
-        app:contentPaddingTop="@dimen/card_content_padding_vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/divider_main_moreDetail">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/textview_floatWindow_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/exo"
-                android:text="@string/floatWindow_title" />
-
-            <TextView
-                android:id="@+id/textview_floatWindow_value"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/exo_semibold"
-                android:text="@string/floatWindow_value"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large" />
-
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
-
-    <View
-        android:id="@+id/divider2"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:background="?android:attr/listDivider"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cardview_main_floatWindow" />
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardview_main_openspeedtest"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
         android:clickable="true"
         android:focusable="true"
         android:foreground="?android:attr/selectableItemBackground"
         app:cardBackgroundColor="?attr/sectionBackground"
         app:cardCornerRadius="8dp"
-        app:cardElevation="0dp"
-        app:contentPaddingBottom="@dimen/card_content_padding_vertical"
-        app:contentPaddingLeft="@dimen/card_content_padding_horizontal"
-        app:contentPaddingRight="@dimen/card_content_padding_horizontal"
-        app:contentPaddingTop="@dimen/card_content_padding_vertical"
-        app:layout_constraintEnd_toStartOf="@id/cardview_main_openfastcom"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:cardElevation="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/divider2">
+        app:layout_constraintTop_toBottomOf="@+id/textview_floatWindow_title">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:weightSum="2">
 
             <TextView
-                android:id="@+id/textview_speedtest_title"
-                android:layout_width="wrap_content"
+                android:id="@+id/textview_floatWindow_value"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/exo"
-                android:text="@string/speedtest_title" />
+                android:layout_weight="1"
+                android:fontFamily="@font/exo_semibold"
+                android:text="@string/floatWindow_value"
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+            <TextView
+                android:id="@+id/textview_floatWindow_values"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/exo_semibold"
+                android:text=""
+                android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+
+    <TextView
+        android:id="@+id/textview_shortcut_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:fontFamily="@font/exo"
+        android:text="@string/shortcuts_title"
+        android:textColor="?attr/sectionTitle"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardview_main_floatWindow" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardview_main_openspeedtest"
+        style="@style/StyleLeftCardView"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?android:attr/selectableItemBackground"
+        app:cardBackgroundColor="?attr/sectionBackground"
+        app:cardElevation="8dp"
+        app:layout_constraintEnd_toStartOf="@id/cardview_main_openfastcom"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textview_shortcut_title">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/textview_speedtest_value"
@@ -307,62 +222,57 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/exo_semibold"
                 android:text="@string/speedtest_value"
+                android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
         </LinearLayout>
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
 
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
         android:id="@+id/cardview_main_openfastcom"
+        style="@style/StyleRightCardView"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
         android:clickable="true"
         android:focusable="true"
         android:foreground="?android:attr/selectableItemBackground"
         app:cardBackgroundColor="?attr/sectionBackground"
-        app:cardCornerRadius="8dp"
-        app:cardElevation="0dp"
-        app:contentPaddingBottom="@dimen/card_content_padding_vertical"
-        app:contentPaddingLeft="@dimen/card_content_padding_horizontal"
-        app:contentPaddingRight="@dimen/card_content_padding_horizontal"
-        app:contentPaddingTop="@dimen/card_content_padding_vertical"
+        app:cardElevation="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@id/cardview_main_openspeedtest"
-        app:layout_constraintTop_toBottomOf="@id/divider2">
+        app:layout_constraintTop_toBottomOf="@id/textview_shortcut_title">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/textview_fastcom_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/exo"
-                android:text="@string/fastcom_title" />
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:weightSum="1">
 
             <TextView
                 android:id="@+id/textview_fastcom_value"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:fontFamily="@font/exo_semibold"
                 android:text="@string/fastcom_value"
+                android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
         </LinearLayout>
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
+
 
     <com.google.android.gms.ads.AdView
         android:id="@+id/adview_main_ad"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
+        android:layout_marginBottom="8dp"
         app:adSize="BANNER"
         app:adUnitId="ca-app-pub-3940256099942544/6300978111"
         app:layout_constraintBottom_toBottomOf="parent"
