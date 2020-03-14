@@ -6,10 +6,7 @@ import android.content.Intent
 import android.net.Uri
 import android.net.wifi.WifiInfo
 import android.net.wifi.WifiManager
-import android.os.Build
-import android.os.Bundle
-import android.os.Handler
-import android.os.StrictMode
+import android.os.*
 import android.provider.Settings
 import android.util.Log
 import android.view.Menu
@@ -23,6 +20,9 @@ import androidx.browser.customtabs.CustomTabsIntent
 import androidx.core.content.ContextCompat
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.MobileAds
+import com.squareup.picasso.MemoryPolicy
+import com.squareup.picasso.NetworkPolicy
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.dialog_moreinfo.view.*
 import java.lang.Exception
@@ -51,6 +51,8 @@ class MainActivity : AppCompatActivity() {
 
         getWifiInfo()
         mHandler = Handler()
+
+        getUnsplashRandomPhoto()
     }
 
     override fun onResume() {
@@ -97,6 +99,11 @@ class MainActivity : AppCompatActivity() {
             try {
                 startActivity(intent)
             } catch (e: Exception) {}
+        }
+
+        cardview_main_ssid.setOnLongClickListener {
+            getUnsplashRandomPhoto()
+            return@setOnLongClickListener true
         }
 
         cardview_main_openspeedtest.setOnClickListener {
@@ -258,9 +265,10 @@ class MainActivity : AppCompatActivity() {
     private fun stopRepeatingTask() = mHandler?.removeCallbacks(repeater)
 
     private fun getUnsplashRandomPhoto() {
-        // https://source.unsplash.com/random
-        val url = URL("https://source.unsplash.com/random")
-        linearLayout_main_ssid.setBackgroundResource()
+        Picasso.get().load("https://source.unsplash.com/random")
+                .networkPolicy(NetworkPolicy.NO_CACHE)
+                .memoryPolicy(MemoryPolicy.NO_CACHE)
+                .into(imageView_main_ssid)
     }
 
 }

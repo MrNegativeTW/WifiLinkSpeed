@@ -4,6 +4,7 @@
     <string name="app_name">WiFi Link Speed</string>
     <string name="app_name_toolbar">WiFi LINK SPEED</string>
     <string name="ssid_value">Starbucks Free Wifi</string>
+    <string name="bssid_value">FF:FF:FF:FF:FF:FF</string>
     <string name="rssi_value">-- dBm</string>
     <string name="linkSpeed_value">-- Mbp</string>
     <string name="floatWindow_title">Floating Window</string>
