@@ -4,4 +4,5 @@
     <attr name="sectionTitle" format="color"/>
     <attr name="sectionBackground" format="color"/>
     <attr name="alertDialogBackground" format="color"/>
+    <attr name="iconFillColor" format="color"/>
 </resources>

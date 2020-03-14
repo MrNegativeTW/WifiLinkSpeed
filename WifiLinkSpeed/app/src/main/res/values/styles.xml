@@ -10,6 +10,7 @@
         <item name="sectionTitle">@color/black</item>
         <item name="sectionBackground">@color/sectionBackground</item>
         <item name="alertDialogBackground">@color/speedtest_main_navy</item>
+        <item name="iconFillColor">@color/toolbarTitle</item>
         <item name="android:windowLightStatusBar">true</item>
     </style>
     <style name="AppTheme_NoActionBar" parent="AppTheme">

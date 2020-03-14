@@ -13,7 +13,6 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.view.WindowManager
-import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.browser.customtabs.CustomTabsIntent
@@ -26,7 +25,6 @@ import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.dialog_moreinfo.view.*
 import java.lang.Exception
-import java.net.URL
 
 
 class MainActivity : AppCompatActivity() {
@@ -46,8 +44,9 @@ class MainActivity : AppCompatActivity() {
 
         setOnClickListener()
 
-        initMobileAds()
-        setupAds()
+        // Init Google Ad Mob
+        MobileAds.initialize(this)
+        adview_main_ad.loadAd(AdRequest.Builder().build())
 
         getWifiInfo()
         mHandler = Handler()
@@ -139,9 +138,6 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
-
-    private fun initMobileAds()  = MobileAds.initialize(this)
-    private fun setupAds() = adview_main_ad.loadAd(AdRequest.Builder().build())
 
 
     //TODO(Get IP, can't functioning now.)
@@ -246,7 +242,6 @@ class MainActivity : AppCompatActivity() {
         textview_rssi_value.text = info.rssi.toString() + " dBm"
         textview_linkspeed_value.text = info.linkSpeed.toString() + " Mbps"
     }
-
 
     /**
      * A repeater use to update wifi info in real-time.
