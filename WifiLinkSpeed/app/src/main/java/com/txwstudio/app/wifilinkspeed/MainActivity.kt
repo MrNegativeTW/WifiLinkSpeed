@@ -71,12 +71,12 @@ class MainActivity : AppCompatActivity() {
 //        delegate.localNightMode = AppCompatDelegate.MODE_NIGHT_YES
 
         // Fix white status bar when sdk <= 21
-        if (Build.VERSION.SDK_INT == Build.VERSION_CODES.LOLLIPOP) {
-            val window = this.window
-            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
-            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
-            window.statusBarColor = ContextCompat.getColor(this, R.color.darkMode_colorPrimary)
-        }
+//        if (Build.VERSION.SDK_INT == Build.VERSION_CODES.LOLLIPOP) {
+//            val window = this.window
+//            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
+//            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
+//            window.statusBarColor = ContextCompat.getColor(this, R.color.darkMode_colorPrimary)
+//        }
     }
 
     private fun overrideStrictMode() {
@@ -260,5 +260,10 @@ class MainActivity : AppCompatActivity() {
 
     private fun startRepeatingTask() = repeater.run()
     private fun stopRepeatingTask() = mHandler?.removeCallbacks(repeater)
+
+    private fun getUnsplashRandomPhoto() {
+        // https://source.unsplash.com/random
+        cardview_main_ssid.resources
+    }
 
 }

@@ -3,9 +3,10 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/speedtest_main_blackBlue</item>
-        <item name="colorPrimaryDark">@color/speedtest_main_blackBlue</item>
+        <item name="colorPrimary">@color/activityBackground</item>
+        <item name="colorPrimaryDark">@color/activityBackground</item>
         <item name="colorAccent">@color/speedtest_main_green</item>
+        <item name="sectionBackground">@color/sectionBackground</item>
         <item name="alertDialogBackground">@color/speedtest_main_navy</item>
     </style>
     <style name="AppTheme_NoActionBar" parent="AppTheme">
