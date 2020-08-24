@@ -10,7 +10,7 @@
     <string name="floatWindow_title">Floating Window</string>
     <string name="floatWindow_value">Disabled</string>
     <string name="floatWindow_value_enable">Enabled</string>
-    <string name="shortcuts_title">Shortcuts to &#8230;</string>
+    <string name="shortcuts_title">Shortcuts</string>
     <string name="speedtest_value">Speedtest</string>
     <string name="fastcom_value">Fast.com</string>
 
