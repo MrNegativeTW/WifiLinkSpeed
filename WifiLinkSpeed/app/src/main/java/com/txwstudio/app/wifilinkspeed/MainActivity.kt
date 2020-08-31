@@ -126,8 +126,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         cardview_main_openfastcom.setOnClickListener {
-            val builder = CustomTabsIntent.Builder()
-            val customTabsIntent = builder.build()
+            val customTabsIntent = CustomTabsIntent.Builder().build()
             customTabsIntent.launchUrl(this, Uri.parse("https://fast.com"))
         }
 
