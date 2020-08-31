@@ -6,23 +6,22 @@ import android.content.Intent
 import android.net.Uri
 import android.net.wifi.WifiInfo
 import android.net.wifi.WifiManager
-import android.os.Build
-import android.os.Bundle
-import android.os.Handler
-import android.os.StrictMode
+import android.os.*
 import android.provider.Settings
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.view.WindowManager
-import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.browser.customtabs.CustomTabsIntent
 import androidx.core.content.ContextCompat
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.MobileAds
+import com.squareup.picasso.MemoryPolicy
+import com.squareup.picasso.NetworkPolicy
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.dialog_moreinfo.view.*
 import java.lang.Exception
@@ -45,11 +44,14 @@ class MainActivity : AppCompatActivity() {
 
         setOnClickListener()
 
-        initMobileAds()
-        setupAds()
+        // Init Google Ad Mob
+        MobileAds.initialize(this)
+        adview_main_ad.loadAd(AdRequest.Builder().build())
 
         getWifiInfo()
         mHandler = Handler()
+
+        getUnsplashRandomPhoto()
     }
 
     override fun onResume() {
@@ -70,12 +72,12 @@ class MainActivity : AppCompatActivity() {
 //        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
 //        delegate.localNightMode = AppCompatDelegate.MODE_NIGHT_YES
 
-        // Fix white status bar when sdk <= 21
+//         Fix white status bar when sdk <= 21
         if (Build.VERSION.SDK_INT == Build.VERSION_CODES.LOLLIPOP) {
             val window = this.window
             window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
-            window.statusBarColor = ContextCompat.getColor(this, R.color.darkMode_colorPrimary)
+            window.statusBarColor = ContextCompat.getColor(this, R.color.gray)
         }
     }
 
@@ -98,15 +100,28 @@ class MainActivity : AppCompatActivity() {
             } catch (e: Exception) {}
         }
 
+        cardview_main_ssid.setOnLongClickListener {
+            getUnsplashRandomPhoto()
+            return@setOnLongClickListener true
+        }
+
         cardview_main_openspeedtest.setOnClickListener {
             var intent = packageManager.getLaunchIntentForPackage("org.zwanoo.android.speedtest")
             if (intent != null) {
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                 startActivity(intent)
             } else {
-                intent = Intent(Intent.ACTION_VIEW).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                intent.data = Uri.parse("market://details?id=org.zwanoo.android.speedtest")
-                startActivity(intent)
+                val builder = AlertDialog.Builder(this)
+                builder.setTitle(R.string.speedtestDialog_Title)
+                builder.setMessage(R.string.speedtestDialog_Meg)
+                builder.setPositiveButton(R.string.global_yes){dialog, id ->
+                    intent = Intent(Intent.ACTION_VIEW).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                    intent?.data = Uri.parse("market://details?id=org.zwanoo.android.speedtest")
+                    startActivity(intent)
+                }
+                builder.setNegativeButton(R.string.global_no){dialog, id ->  }
+
+                builder.show()
             }
         }
 
@@ -114,12 +129,6 @@ class MainActivity : AppCompatActivity() {
             val builder = CustomTabsIntent.Builder()
             val customTabsIntent = builder.build()
             customTabsIntent.launchUrl(this, Uri.parse("https://fast.com"))
-        }
-
-        // Call moreInfoDialog
-        cardview_main_moreInfo.setOnClickListener {
-            Toast.makeText(this, "Hold...", Toast.LENGTH_SHORT).show()
-            moreInfoDialog()
         }
 
         // Call checkOverlayPermission
@@ -137,9 +146,6 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
-
-    private fun initMobileAds()  = MobileAds.initialize(this)
-    private fun setupAds() = adview_main_ad.loadAd(AdRequest.Builder().build())
 
 
     //TODO(Get IP, can't functioning now.)
@@ -240,10 +246,10 @@ class MainActivity : AppCompatActivity() {
         val info: WifiInfo = wifiManager.connectionInfo
 
         textview_ssid_value.text = info.ssid.substring(1, info.ssid.length - 1)
+        textview_bssid_value.text = info.bssid
         textview_rssi_value.text = info.rssi.toString() + " dBm"
         textview_linkspeed_value.text = info.linkSpeed.toString() + " Mbps"
     }
-
 
     /**
      * A repeater use to update wifi info in real-time.
@@ -260,5 +266,12 @@ class MainActivity : AppCompatActivity() {
 
     private fun startRepeatingTask() = repeater.run()
     private fun stopRepeatingTask() = mHandler?.removeCallbacks(repeater)
+
+    private fun getUnsplashRandomPhoto() {
+        Picasso.get().load("https://source.unsplash.com/random")
+                .networkPolicy(NetworkPolicy.NO_CACHE)
+                .memoryPolicy(MemoryPolicy.NO_CACHE)
+                .into(imageView_main_ssid)
+    }
 
 }

@@ -4,18 +4,15 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
 
-    <!-- Dark Mode -->
-    <color name="darkMode_colorPrimary">#313236</color>
-    <color name="darkMode_colorPrimaryDark">#232323</color>
-    <color name="darkMode_colorAccent">#4fb492</color>
-    <!-- Light Mode -->
-    <color name="lightMode_colorPrimary">#fff</color>
-    <color name="lightMode_colorPrimaryDark">#fff</color>
-    <color name="lightMode_colorAccent">#00875f</color>
+    <color name="toolbarTitle">#A0A0A0</color>
+    <color name="activityBackground">#F2F2F2</color>
+    <color name="sectionBackground">#0F4C81</color>
+
 
     <!-- Common -->
     <color name="white">#ffffff</color>
     <color name="gray">#7d8492</color>
+    <color name="black">#000</color>
     <color name="fabButtonColor">#52545a</color>
 
 

@@ -3,22 +3,21 @@
 <!--    Main Activity-->
     <string name="app_name">WiFi Link Speed</string>
     <string name="app_name_toolbar">WiFi LINK SPEED</string>
-    <string name="ssid_title">YOU ARE ON</string>
-    <string name="ssid_value">Unknown</string>
-    <string name="rssi_title">RSSI</string>
+    <string name="ssid_value">Starbucks Free Wifi</string>
+    <string name="bssid_value">FF:FF:FF:FF:FF:FF</string>
     <string name="rssi_value">-- dBm</string>
-    <string name="linkSpeed_title">LINK SPEED</string>
     <string name="linkSpeed_value">-- Mbp</string>
-    <string name="moreDetail_title">Click for more info</string>
     <string name="floatWindow_title">Floating Window</string>
-    <string name="floatWindow_value">Disable</string>
-    <string name="floatWindow_value_enable">Enable</string>
+    <string name="floatWindow_value">Disabled</string>
+    <string name="floatWindow_value_enable">Enabled</string>
+    <string name="shortcuts_title">Shortcuts</string>
+    <string name="speedtest_value">Speedtest</string>
+    <string name="fastcom_value">Fast.com</string>
 
-    <string name="speedtest_title">Open</string>
-    <string name="speedtest_value">SPEEDTEST</string>
-    <string name="fastcom_title">Open</string>
-    <string name="fastcom_value">FAST.com</string>
-    
+<!--    Speedtest 404 Dialog-->
+    <string name="speedtestDialog_Title">Speedtest Not Found</string>
+    <string name="speedtestDialog_Meg">Install from Google Play?</string>
+
 <!--    More Info Dialog-->
     <string name="moreinfoDialog_Title">More Info</string>
     <string name="moreinfoDialog_bssid">BSSID: </string>
@@ -40,6 +39,8 @@
 
 <!--    Global-->
     <string name="global_ok">OK</string>
+    <string name="global_yes">yes</string>
+    <string name="global_no">No</string>
     <string name="global_done">Done</string>
     <string name="global_cancel">Cancel</string>
 </resources>
