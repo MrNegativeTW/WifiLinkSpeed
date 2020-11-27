@@ -43,6 +43,7 @@
 
     <!-- Menu item -->
     <string name="menu_aboutValue">About</string>
+    <string name="menu_settings">Settings</string>
 
     <!-- Global -->
     <string name="global_ok">OK</string>
