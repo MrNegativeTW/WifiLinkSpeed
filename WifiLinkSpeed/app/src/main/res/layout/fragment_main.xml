@@ -116,7 +116,8 @@
             android:id="@+id/testButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Click Me" />
+            android:text="Click Me"
+            android:visibility="gone"/>
 
     </FrameLayout>
 </layout>
