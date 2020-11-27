@@ -10,12 +10,12 @@
         android:layout_width="match_parent"
         android:layout_height="32dp"
         android:background="?attr/colorSurface"
+        android:gravity="center"
         app:liftOnScroll="true">
 
         <com.google.android.material.textview.MaterialTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
             android:fontFamily="@font/exo_2_bold"
             android:text="@string/app_name_toolbar"
             android:textColor="?attr/colorControlNormal">
