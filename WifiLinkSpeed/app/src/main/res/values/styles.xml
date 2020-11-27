@@ -19,6 +19,16 @@
         <item name="windowNoTitle">true</item>
     </style>
 
+    <!-- Brand NEW theme -->
+    <style name="AppTheme2" parent="Theme.MaterialComponents.DayNight">
+        <item name="colorPrimary">#FF9800</item>
+    </style>
+
+    <style name="AppTheme2.NoActionBar" parent="AppTheme2">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
     <!-- Information Card -->
     <style name="Card">
 
