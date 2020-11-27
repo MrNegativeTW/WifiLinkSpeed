@@ -51,7 +51,7 @@ class MainActivity : AppCompatActivity() {
         adview_main_ad.loadAd(AdRequest.Builder().build())
 
         getWifiInfo()
-        mHandler = Handler()
+        mHandler = Handler(Looper.getMainLooper())
 
         getUnsplashRandomPhoto()
     }
