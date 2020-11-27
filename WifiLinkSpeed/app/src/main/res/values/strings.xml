@@ -25,6 +25,8 @@
     <string name="mainFrag_shortCutsTitle">Shortcuts</string>
     <string name="mainFrag_speedtestContent">Speedtest (By Ookla)</string>
     <string name="mainFrag_fastComShortcutContent">Fast.com (By Netflix)</string>
+    <string name="mainFrag_aboutTitle">About</string>
+    <string name="mainFrag_aboutContent">About this app</string>
 
     <!-- Speedtest 404 Dialog -->
     <string name="speedtestDialog_Title">Speedtest Not Found</string>

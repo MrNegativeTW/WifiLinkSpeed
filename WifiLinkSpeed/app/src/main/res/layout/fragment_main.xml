@@ -210,6 +210,33 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/switch_mainFragment_speedtestShortcutButton" />
 
+            <!-- Floating Window Section -->
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/textView_mainFragment_aboutTitle"
+                style="@style/Card.Title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="32dp"
+                android:text="@string/mainFrag_aboutTitle"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/switch_mainFragment_fastComShortcutButton" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/switch_mainFragment_aboutButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="16dp"
+                android:text="@string/mainFrag_aboutContent"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textView_mainFragment_aboutTitle" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 </layout>
