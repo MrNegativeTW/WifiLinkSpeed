@@ -131,8 +131,23 @@ class MainFragment : Fragment() {
             customTabsIntent.launchUrl(requireContext(), Uri.parse("https://fast.com"))
         }
 
-        binding.textViewMainFragmentAboutButton.setOnClickListener {
+        binding.textViewMainFragmentBugReportButton.setOnClickListener {
+            val customTabsIntent = CustomTabsIntent.Builder().build()
+            customTabsIntent.launchUrl(requireContext(), Uri.parse("https://bit.ly/2JjPpAs"))
+        }
 
+        binding.textViewMainFragmentAboutButton.setOnClickListener {
+            val content = View.inflate(requireContext(), R.layout.dialog_about, null)
+
+
+            val builder = AlertDialog.Builder(requireContext()).apply {
+//                setView(content)
+//                create()
+//                show()
+            }
+            builder.setView(content)
+            builder.create()
+            builder.show()
         }
     }
 

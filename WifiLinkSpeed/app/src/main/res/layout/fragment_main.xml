@@ -224,6 +224,20 @@
                 app:layout_constraintTop_toBottomOf="@id/textView_mainFragment_fastComShortcutButton" />
 
             <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/textView_mainFragment_bugReportButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="16dp"
+                android:text="@string/mainFrag_bugReportContent"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textView_mainFragment_aboutTitle" />
+
+            <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/textView_mainFragment_aboutButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -235,7 +249,7 @@
                 android:text="@string/mainFrag_aboutContent"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/textView_mainFragment_aboutTitle" />
+                app:layout_constraintTop_toBottomOf="@id/textView_mainFragment_bugReportButton" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
