@@ -14,8 +14,8 @@ android {
         applicationId "com.txwstudio.app.wifilinkspeed"
         minSdkVersion 21
         targetSdkVersion 30
-        versionCode 3
-        versionName "Beta 1.1.0"
+        versionCode 4
+        versionName "Beta 1.2"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {

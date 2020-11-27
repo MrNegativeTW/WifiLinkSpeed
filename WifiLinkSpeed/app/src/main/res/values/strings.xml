@@ -33,7 +33,7 @@
     <string name="mainFrag_aboutContent">About This App</string>
 
     <!-- About Fragment -->
-    <string name="aboutFrag_appVersion">Beta 1.1</string>
+    <string name="aboutFrag_appVersion">Beta 1.2</string>
     <string name="aboutFrag_backButton">Got it</string>
 
     <!-- Speedtest 404 Dialog -->
