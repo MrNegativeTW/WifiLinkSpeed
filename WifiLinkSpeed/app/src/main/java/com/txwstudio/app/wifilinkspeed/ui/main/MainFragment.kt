@@ -1,13 +1,17 @@
 package com.txwstudio.app.wifilinkspeed.ui.main
 
+import android.annotation.TargetApi
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.net.wifi.WifiInfo
 import android.net.wifi.WifiManager
+import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.provider.Settings
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -17,6 +21,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.txwstudio.app.wifilinkspeed.R
 import com.txwstudio.app.wifilinkspeed.databinding.FragmentMainBinding
+import com.txwstudio.app.wifilinkspeed.service.FloatWindowService
+
 
 /**
  * A simple [Fragment] subclass.
@@ -28,13 +34,17 @@ class MainFragment : Fragment() {
     companion object {
         fun newInstance() = MainFragment()
         private const val updateInterval = 1
+        private const val REQUEST_CODE_OVERLAY = 0
     }
 
     private val liveCamViewModel: MainFragmentViewModel by viewModels()
     private lateinit var binding: FragmentMainBinding
 
+    private var floatWindowStatus = false
+
     private lateinit var mHandler: Handler
     private var updateWifiInfoTask = object : Runnable {
+
         override fun run() {
             try {
                 getWifiInfo()
@@ -67,8 +77,36 @@ class MainFragment : Fragment() {
         mHandler.removeCallbacks(updateWifiInfoTask)
     }
 
+    @TargetApi(Build.VERSION_CODES.M)
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        when (requestCode) {
+            REQUEST_CODE_OVERLAY -> {
+                if (Settings.canDrawOverlays(requireContext())) {
+
+                }
+            }
+        }
+    }
+
     private fun subscribeUi() {
-        binding.switchMainFragmentSpeedtestShortcutButton.setOnClickListener {
+        binding.switchMainFragmentFloatingWindowSwitch.setOnCheckedChangeListener { compoundButton, boolean ->
+            if (checkOverlayPermission()) {
+                if (floatWindowStatus) {
+                    floatWindowStatus = false
+                    binding.switchMainFragmentFloatingWindowSwitch.isChecked = false
+                    requireContext().stopService(Intent(requireActivity(), FloatWindowService::class.java))
+                } else if (!floatWindowStatus) {
+                    floatWindowStatus = true
+                    binding.switchMainFragmentFloatingWindowSwitch.isChecked = true
+                    requireContext().startService(Intent(requireActivity(), FloatWindowService::class.java))
+                }
+            } else {
+                binding.switchMainFragmentFloatingWindowSwitch.isChecked = false
+            }
+        }
+
+        binding.textViewMainFragmentSpeedtestShortcutButton.setOnClickListener {
             var intent = requireContext().packageManager.getLaunchIntentForPackage("org.zwanoo.android.speedtest")
             if (intent != null) {
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
@@ -77,22 +115,23 @@ class MainFragment : Fragment() {
                 val builder = AlertDialog.Builder(requireContext())
                 builder.setTitle(R.string.speedtestDialog_Title)
                 builder.setMessage(R.string.speedtestDialog_Meg)
-                builder.setPositiveButton(R.string.global_yes){ dialog, id ->
+                builder.setPositiveButton(R.string.global_yes) { dialog, id ->
                     intent = Intent(Intent.ACTION_VIEW).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                     intent?.data = Uri.parse("market://details?id=org.zwanoo.android.speedtest")
                     startActivity(intent)
                 }
-                builder.setNegativeButton(R.string.global_no){ dialog, id ->  }
+                builder.setNegativeButton(R.string.global_no) { dialog, id -> }
 
                 builder.show()
             }
         }
 
-        binding.switchMainFragmentFastComShortcutButton.setOnClickListener {
+        binding.textViewMainFragmentFastComShortcutButton.setOnClickListener {
             val customTabsIntent = CustomTabsIntent.Builder().build()
             customTabsIntent.launchUrl(requireContext(), Uri.parse("https://fast.com"))
         }
-        binding.switchMainFragmentAboutButton.setOnClickListener {
+
+        binding.textViewMainFragmentAboutButton.setOnClickListener {
 
         }
     }
@@ -107,4 +146,22 @@ class MainFragment : Fragment() {
         binding.textViewMainFragmentCurrentLinkSpeedContent.text = info.linkSpeed.toString() + " Mbps"
     }
 
+    /**
+     * Deal with overlay window permission.
+     * @return True, if OS version is below M.
+     * @return False, if OS version is above M
+     * */
+    private fun checkOverlayPermission(): Boolean {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
+            return true
+        }
+
+        if (!Settings.canDrawOverlays(requireContext())) {
+            val myIntent = Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION)
+            myIntent.data = Uri.parse("package:${requireContext().packageName}")
+            startActivityForResult(myIntent, REQUEST_CODE_OVERLAY)
+            return false
+        }
+        return true
+    }
 }
