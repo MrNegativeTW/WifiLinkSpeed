@@ -1,6 +1,7 @@
 package com.txwstudio.app.wifilinkspeed.ui.main
 
 import android.content.Context
+import android.content.Intent
 import android.net.Uri
 import android.net.wifi.WifiInfo
 import android.net.wifi.WifiManager
@@ -10,9 +11,11 @@ import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AlertDialog
 import androidx.browser.customtabs.CustomTabsIntent
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import com.txwstudio.app.wifilinkspeed.R
 import com.txwstudio.app.wifilinkspeed.databinding.FragmentMainBinding
 
 /**
@@ -66,8 +69,25 @@ class MainFragment : Fragment() {
 
     private fun subscribeUi() {
         binding.switchMainFragmentSpeedtestShortcutButton.setOnClickListener {
+            var intent = requireContext().packageManager.getLaunchIntentForPackage("org.zwanoo.android.speedtest")
+            if (intent != null) {
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                startActivity(intent)
+            } else {
+                val builder = AlertDialog.Builder(requireContext())
+                builder.setTitle(R.string.speedtestDialog_Title)
+                builder.setMessage(R.string.speedtestDialog_Meg)
+                builder.setPositiveButton(R.string.global_yes){ dialog, id ->
+                    intent = Intent(Intent.ACTION_VIEW).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                    intent?.data = Uri.parse("market://details?id=org.zwanoo.android.speedtest")
+                    startActivity(intent)
+                }
+                builder.setNegativeButton(R.string.global_no){ dialog, id ->  }
 
+                builder.show()
+            }
         }
+
         binding.switchMainFragmentFastComShortcutButton.setOnClickListener {
             val customTabsIntent = CustomTabsIntent.Builder().build()
             customTabsIntent.launchUrl(requireContext(), Uri.parse("https://fast.com"))
