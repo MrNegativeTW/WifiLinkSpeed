@@ -21,7 +21,10 @@
     <string name="mainFrag_currentRssiTitle">RSSI</string>
     <string name="mainFrag_currentLinkSpeedTitle">Link Speed</string>
     <string name="mainFrag_floatingWindowTitle">Floating Window</string>
+    <string name="mainFrag_floatingWindowSwitchContent">Enable Floating Window</string>
     <string name="mainFrag_shortCutsTitle">Shortcuts</string>
+    <string name="mainFrag_speedtestContent">Speedtest (By Ookla)</string>
+    <string name="mainFrag_fastComShortcutContent">Fast.com (By Netflix)</string>
 
     <!-- Speedtest 404 Dialog -->
     <string name="speedtestDialog_Title">Speedtest Not Found</string>

@@ -20,6 +20,8 @@
             android:layout_height="wrap_content"
             tools:context=".ui.main.MainFragment">
 
+            <!-- General Section -->
+
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/textView_mainFragment_generalTitle"
                 style="@style/Card.Title"
@@ -143,6 +145,7 @@
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
 
+            <!-- Floating Window Section -->
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/textView_mainFragment_floatingWindowTitle"
                 style="@style/Card.Title"
@@ -161,10 +164,12 @@
                 android:layout_height="wrap_content"
                 android:foreground="?attr/selectableItemBackground"
                 android:paddingHorizontal="16dp"
-                android:text="Enable Floating Window"
+                android:paddingVertical="16dp"
+                android:text="@string/mainFrag_floatingWindowSwitchContent"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
                 app:layout_constraintTop_toBottomOf="@+id/textView_mainFragment_floatingWindowTitle" />
 
+            <!-- Shortcuts Section -->
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/textView_mainFragment_shortCutsTitle"
                 style="@style/Card.Title"
@@ -186,7 +191,7 @@
                 android:foreground="?attr/selectableItemBackground"
                 android:paddingHorizontal="16dp"
                 android:paddingVertical="16dp"
-                android:text="Speedtest (By Okara)"
+                android:text="@string/mainFrag_speedtestContent"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/textView_mainFragment_shortCutsTitle" />
@@ -200,7 +205,7 @@
                 android:foreground="?attr/selectableItemBackground"
                 android:paddingHorizontal="16dp"
                 android:paddingVertical="16dp"
-                android:text="Fast.com (By Netflix)"
+                android:text="@string/mainFrag_fastComShortcutContent"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/switch_mainFragment_speedtestShortcutButton" />
