@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/MainFragment"
         android:name="com.txwstudio.app.wifilinkspeed.ui.main.MainFragment"
-        android:label="@string/first_fragment_label"
+        android:label="fragment_home"
         tools:layout="@layout/fragment_main">
         <action
             android:id="@+id/action_MainFragment_to_aboutFragment"

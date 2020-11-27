@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Main Activity -->
+    <string name="shoutcuts_newActivityTitle">Secret Screen</string>
+
+    <!-- Main Activity -->
     <string name="app_name">WiFi Link Speed</string>
     <string name="app_name_toolbar">WiFi LINK SPEED</string>
     <string name="ssid_value">Starbucks Free Wifi</string>
@@ -29,7 +32,7 @@
     <string name="mainFrag_bugReportContent">Bug Report</string>
     <string name="mainFrag_aboutContent">About This App</string>
 
-    <!-- Main Fragment -->
+    <!-- About Fragment -->
     <string name="aboutFrag_appVersion">Beta 1.1</string>
     <string name="aboutFrag_backButton">Got it</string>
 
@@ -63,7 +66,4 @@
     <string name="global_no">No</string>
     <string name="global_done">Done</string>
     <string name="global_cancel">Cancel</string>
-    <string name="title_activity_main2">MainActivity</string>
-    <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
 </resources>
