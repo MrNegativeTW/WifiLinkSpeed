@@ -13,15 +13,34 @@
         <item name="iconFillColor">@color/toolbarTitle</item>
         <item name="android:windowLightStatusBar">true</item>
     </style>
+
     <style name="AppTheme_NoActionBar" parent="AppTheme">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
 
+    <!-- Information Card -->
+    <style name="Card">
+
+    </style>
+
+    <style name="Card.Title">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">#FF9800</item>
+        <item name="android:textAppearance">@style/TextAppearance.MaterialComponents.Subtitle1
+        </item>
+    </style>
+
+    <style name="Card.CurrentInfoContent">
+        <item name="android:textAppearance">@style/TextAppearance.MaterialComponents.Body1</item>
+        <item name="android:fontFamily">@font/exo_semibold</item>
+        <item name="android:layout_marginTop">2dp</item>
+    </style>
 
     <style name="StyleLeftCardView" parent="@style/Widget.MaterialComponents.CardView">
         <item name="shapeAppearanceOverlay">@style/StyleLeftCardViewCorner</item>
     </style>
+
     <style name="StyleLeftCardViewCorner" parent="">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSizeTopRight">0dp</item>
@@ -33,6 +52,7 @@
     <style name="StyleRightCardView" parent="@style/Widget.MaterialComponents.CardView">
         <item name="shapeAppearanceOverlay">@style/StyleRightCardViewCorner</item>
     </style>
+
     <style name="StyleRightCardViewCorner" parent="">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSizeTopRight">8dp</item>

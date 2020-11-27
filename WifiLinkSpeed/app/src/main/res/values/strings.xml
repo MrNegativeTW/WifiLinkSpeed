@@ -13,6 +13,13 @@
     <string name="shortcuts_title">Shortcuts</string>
     <string name="speedtest_value">Speedtest</string>
     <string name="fastcom_value">Fast.com</string>
+    
+    <!-- Main Fragment -->
+    <string name="mainFrag_infoCardTitle">General</string>
+    <string name="mainFrag_currentSsidTitle">SSID</string>
+    <string name="mainFrag_currentWifiMacTitle">Mac address</string>
+    <string name="mainFrag_currentRssiTitle">RSSI</string>
+    <string name="mainFrag_currentLinkSpeedTitle">Link Speed</string>
 
     <!-- Speedtest 404 Dialog -->
     <string name="speedtestDialog_Title">Speedtest Not Found</string>

@@ -19,9 +19,10 @@
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/textView_mainFragment_infoCardTitle"
+                style="@style/Card.Title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="General"
+                android:text="@string/mainFrag_infoCardTitle"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -30,15 +31,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="SSID"
+                android:text="@string/mainFrag_currentSsidTitle"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/textView_mainFragment_infoCardTitle" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/textView_mainFragment_currentSsidContent"
+                style="@style/Card.CurrentInfoContent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/textView_mainFragment_currentSsidTitle"
                 tools:text="200 OK" />
@@ -48,15 +49,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="Mac address"
+                android:text="@string/mainFrag_currentWifiMacTitle"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/textView_mainFragment_currentSsidContent" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/textView_mainFragment_currentWifiMacContent"
+                style="@style/Card.CurrentInfoContent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/textView_mainFragment_currentWifiMacTitle"
                 tools:text="FF:FF:FF:FF:FF:FF" />
@@ -66,39 +67,39 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="RSSI"
+                android:text="@string/mainFrag_currentRssiTitle"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/textView_mainFragment_currentWifiMacContent" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/textView_mainFragment_currentRssiContent"
+                style="@style/Card.CurrentInfoContent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
+                android:text="@string/rssi_value"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/textView_mainFragment_currentRssiTitle"
-                tools:text="FF:FF:FF:FF:FF:FF" />
+                tools:text="-- dBm" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/textView_mainFragment_currentLinkSpeedTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="Link Speed"
+                android:text="@string/mainFrag_currentLinkSpeedTitle"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/textView_mainFragment_currentRssiContent" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/textView_mainFragment_currentLinkSpeedContent"
+                style="@style/Card.CurrentInfoContent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
+                android:text="@string/linkSpeed_value"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/textView_mainFragment_currentLinkSpeedTitle"
-                tools:text="FF:FF:FF:FF:FF:FF" />
+                tools:text="-- Mbps" />
         </androidx.constraintlayout.widget.ConstraintLayout>
-
-
     </androidx.cardview.widget.CardView>
 
 </FrameLayout>
