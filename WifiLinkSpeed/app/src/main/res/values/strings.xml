@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-<!--    Main Activity-->
+    <!-- Main Activity -->
     <string name="app_name">WiFi Link Speed</string>
     <string name="app_name_toolbar">WiFi LINK SPEED</string>
     <string name="ssid_value">Starbucks Free Wifi</string>
@@ -14,33 +14,36 @@
     <string name="speedtest_value">Speedtest</string>
     <string name="fastcom_value">Fast.com</string>
 
-<!--    Speedtest 404 Dialog-->
+    <!-- Speedtest 404 Dialog -->
     <string name="speedtestDialog_Title">Speedtest Not Found</string>
     <string name="speedtestDialog_Meg">Install from Google Play?</string>
 
-<!--    More Info Dialog-->
+    <!-- More Info Dialog -->
     <string name="moreinfoDialog_Title">More Info</string>
     <string name="moreinfoDialog_bssid">BSSID: </string>
     <string name="moreinfoDialog_freq">Frequency: </string>
     <string name="moreinfoDialog_myMacAddress">My MAC Address: </string>
     <string name="moreinfoDialog_inIP">Internal IP: </string>
     <string name="moreinfoDialog_exIP">External IP: </string>
-    
-<!--    About Dialog-->
+
+    <!-- About Dialog -->
     <string name="aboutDialog_versionTitle">Version</string>
     <string name="aboutDialog_creditTitle">Credit</string>
     <string name="aboutDialog_createdByTitle">Created By</string>
     <string name="aboutDialog_createdByValue">Trevor</string>
     <string name="aboutDialog_creditValueIcon">Icon made by Freepik from FlatIcon</string>
-<!--    https://www.flaticon.com/free-icon/acceleration_181423。-->
-。
-<!--    Menu item-->
+    <!-- https://www.flaticon.com/free-icon/acceleration_181423 -->
+
+    <!-- Menu item -->
     <string name="menu_aboutValue">About</string>
 
-<!--    Global-->
+    <!-- Global -->
     <string name="global_ok">OK</string>
     <string name="global_yes">yes</string>
     <string name="global_no">No</string>
     <string name="global_done">Done</string>
     <string name="global_cancel">Cancel</string>
+    <string name="title_activity_main2">MainActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
 </resources>

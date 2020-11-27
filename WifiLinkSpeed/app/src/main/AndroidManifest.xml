@@ -17,6 +17,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme_NoActionBar"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
+
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
             android:value="ca-app-pub-3716797788275517~9255969265" />
@@ -28,11 +29,19 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name=".activity.MainActivity2"
+            android:label="@string/title_activity_main2">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
 
         <service android:name=".service.FloatWindowService" />
-
     </application>
 </manifest>
