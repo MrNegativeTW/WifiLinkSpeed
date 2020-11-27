@@ -45,6 +45,17 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/textView_mainFragment_infoCardTitle" />
 
+                <ImageView
+                    android:id="@+id/imageView_mainFragment_currentSsidButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?attr/selectableItemBackground"
+                    android:padding="8dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/textView_mainFragment_currentSsidContent"
+                    app:layout_constraintTop_toTopOf="@id/textView_mainFragment_currentSsidTitle" />
+
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/textView_mainFragment_currentSsidContent"
                     style="@style/Card.CurrentInfoContent"
@@ -117,7 +128,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Click Me"
-            android:visibility="gone"/>
+            android:visibility="gone" />
 
     </FrameLayout>
 </layout>
