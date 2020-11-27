@@ -13,7 +13,7 @@
     <string name="shortcuts_title">Shortcuts</string>
     <string name="speedtest_value">Speedtest</string>
     <string name="fastcom_value">Fast.com</string>
-    
+
     <!-- Main Fragment -->
     <string name="mainFrag_infoCardTitle">General</string>
     <string name="mainFrag_currentSsidTitle">SSID</string>
@@ -28,6 +28,10 @@
     <string name="mainFrag_aboutTitle">About</string>
     <string name="mainFrag_bugReportContent">Bug Report</string>
     <string name="mainFrag_aboutContent">About This App</string>
+
+    <!-- Main Fragment -->
+    <string name="aboutFrag_appVersion">Beta 1.1</string>
+    <string name="aboutFrag_backButton">Got it</string>
 
     <!-- Speedtest 404 Dialog -->
     <string name="speedtestDialog_Title">Speedtest Not Found</string>

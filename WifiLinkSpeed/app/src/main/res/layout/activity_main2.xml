@@ -18,15 +18,13 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/exo_2_bold"
             android:text="@string/app_name_toolbar"
-            android:textColor="?attr/colorControlNormal">
-        </com.google.android.material.textview.MaterialTextView>
-
+            android:textColor="?attr/colorControlNormal"
+            app:layout_scrollFlags="snap|scroll" />
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="56dp"
         app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
 
         <androidx.fragment.app.FragmentContainerView

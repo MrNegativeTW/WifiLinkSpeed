@@ -19,6 +19,8 @@ import androidx.appcompat.app.AlertDialog
 import androidx.browser.customtabs.CustomTabsIntent
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.NavController
+import androidx.navigation.fragment.findNavController
 import com.txwstudio.app.wifilinkspeed.R
 import com.txwstudio.app.wifilinkspeed.databinding.FragmentMainBinding
 import com.txwstudio.app.wifilinkspeed.service.FloatWindowService
@@ -36,6 +38,8 @@ class MainFragment : Fragment() {
         private const val updateInterval = 1
         private const val REQUEST_CODE_OVERLAY = 0
     }
+
+    private lateinit var navController: NavController
 
     private val liveCamViewModel: MainFragmentViewModel by viewModels()
     private lateinit var binding: FragmentMainBinding
@@ -62,6 +66,7 @@ class MainFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        navController = findNavController()
         subscribeUi()
         mHandler = Handler(Looper.getMainLooper())
     }
@@ -137,17 +142,7 @@ class MainFragment : Fragment() {
         }
 
         binding.textViewMainFragmentAboutButton.setOnClickListener {
-            val content = View.inflate(requireContext(), R.layout.dialog_about, null)
-
-
-            val builder = AlertDialog.Builder(requireContext()).apply {
-//                setView(content)
-//                create()
-//                show()
-            }
-            builder.setView(content)
-            builder.create()
-            builder.show()
+            navController.navigate(R.id.action_MainFragment_to_aboutFragment)
         }
     }
 
