@@ -24,6 +24,7 @@ import androidx.navigation.fragment.findNavController
 import com.txwstudio.app.wifilinkspeed.R
 import com.txwstudio.app.wifilinkspeed.databinding.FragmentMainBinding
 import com.txwstudio.app.wifilinkspeed.service.FloatWindowService
+import java.lang.Exception
 
 
 /**
@@ -95,6 +96,14 @@ class MainFragment : Fragment() {
     }
 
     private fun subscribeUi() {
+        binding.imageViewMainFragmentCurrentSsidButton.setOnClickListener {
+            val intent = Intent(Settings.ACTION_WIFI_SETTINGS)
+            try {
+                startActivity(intent)
+            } catch (e: Exception) {
+            }
+        }
+
         binding.switchMainFragmentFloatingWindowSwitch.setOnCheckedChangeListener { compoundButton, boolean ->
             if (checkOverlayPermission()) {
                 if (floatWindowStatus) {
