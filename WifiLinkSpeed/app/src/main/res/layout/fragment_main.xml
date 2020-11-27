@@ -29,6 +29,7 @@
                 android:layout_marginTop="32dp"
                 android:text="@string/mainFrag_infoCardTitle"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+                android:visibility="gone"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -176,12 +177,33 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/switch_mainFragment_floatingWindowSwitch" />
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/testButton"
-                android:layout_width="wrap_content"
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/switch_mainFragment_speedtestShortcutButton"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Click Me"
-                android:visibility="gone" />
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="16dp"
+                android:text="Speedtest (By Okara)"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textView_mainFragment_shortCutsTitle" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/switch_mainFragment_fastComShortcutButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="16dp"
+                android:text="Fast.com (By Netflix)"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/switch_mainFragment_speedtestShortcutButton" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
