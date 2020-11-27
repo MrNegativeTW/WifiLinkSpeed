@@ -20,6 +20,7 @@
     <string name="mainFrag_currentWifiMacTitle">Mac address</string>
     <string name="mainFrag_currentRssiTitle">RSSI</string>
     <string name="mainFrag_currentLinkSpeedTitle">Link Speed</string>
+    <string name="mainFrag_floatingWindowTitle">Floating Window</string>
 
     <!-- Speedtest 404 Dialog -->
     <string name="speedtestDialog_Title">Speedtest Not Found</string>

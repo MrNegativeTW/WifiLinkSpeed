@@ -11,124 +11,156 @@
     </data>
 
 
-    <FrameLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".ui.main.MainFragment">
+        android:layout_height="match_parent">
 
-        <androidx.cardview.widget.CardView
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp"
-            app:cardCornerRadius="8dp">
+            tools:context=".ui.main.MainFragment">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_mainFragment_general"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="16dp">
+                android:layout_margin="16dp"
+                app:cardCornerRadius="8dp"
+                app:layout_constraintTop_toTopOf="parent">
 
-                <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/textView_mainFragment_infoCardTitle"
-                    style="@style/Card.Title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/mainFrag_infoCardTitle"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/textView_mainFragment_currentSsidTitle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:text="@string/mainFrag_currentSsidTitle"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/textView_mainFragment_infoCardTitle" />
-
-                <ImageView
-                    android:id="@+id/imageView_mainFragment_currentSsidButton"
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:foreground="?attr/selectableItemBackground"
-                    android:padding="8dp"
-                    app:layout_constraintBottom_toBottomOf="@+id/textView_mainFragment_currentSsidContent"
-                    app:layout_constraintTop_toTopOf="@id/textView_mainFragment_currentSsidTitle" />
-
-                <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/textView_mainFragment_currentSsidContent"
-                    style="@style/Card.CurrentInfoContent"
-                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/textView_mainFragment_currentSsidTitle"
-                    tools:text="200 OK" />
+                    android:padding="16dp">
 
-                <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/textView_mainFragment_currentWifiMacTitle"
-                    android:layout_width="wrap_content"
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/textView_mainFragment_infoCardTitle"
+                        style="@style/Card.Title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/mainFrag_infoCardTitle"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/textView_mainFragment_currentSsidTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:text="@string/mainFrag_currentSsidTitle"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/textView_mainFragment_infoCardTitle" />
+
+                    <ImageView
+                        android:id="@+id/imageView_mainFragment_currentSsidButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?attr/selectableItemBackground"
+                        android:padding="8dp"
+                        app:layout_constraintBottom_toBottomOf="@+id/textView_mainFragment_currentSsidContent"
+                        app:layout_constraintTop_toTopOf="@id/textView_mainFragment_currentSsidTitle" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/textView_mainFragment_currentSsidContent"
+                        style="@style/Card.CurrentInfoContent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/textView_mainFragment_currentSsidTitle"
+                        tools:text="200 OK" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/textView_mainFragment_currentWifiMacTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:text="@string/mainFrag_currentWifiMacTitle"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/textView_mainFragment_currentSsidContent" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/textView_mainFragment_currentWifiMacContent"
+                        style="@style/Card.CurrentInfoContent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/textView_mainFragment_currentWifiMacTitle"
+                        tools:text="FF:FF:FF:FF:FF:FF" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/textView_mainFragment_currentRssiTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:text="@string/mainFrag_currentRssiTitle"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/textView_mainFragment_currentWifiMacContent" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/textView_mainFragment_currentRssiContent"
+                        style="@style/Card.CurrentInfoContent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/rssi_value"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/textView_mainFragment_currentRssiTitle"
+                        tools:text="-- dBm" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/textView_mainFragment_currentLinkSpeedTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:text="@string/mainFrag_currentLinkSpeedTitle"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/textView_mainFragment_currentRssiContent" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/textView_mainFragment_currentLinkSpeedContent"
+                        style="@style/Card.CurrentInfoContent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/linkSpeed_value"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/textView_mainFragment_currentLinkSpeedTitle"
+                        tools:text="-- Mbps" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_mainFragment_floatingWindow"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                app:cardCornerRadius="8dp"
+                app:layout_constraintTop_toBottomOf="@id/card_mainFragment_general">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:text="@string/mainFrag_currentWifiMacTitle"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/textView_mainFragment_currentSsidContent" />
+                    android:padding="16dp">
 
-                <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/textView_mainFragment_currentWifiMacContent"
-                    style="@style/Card.CurrentInfoContent"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/textView_mainFragment_currentWifiMacTitle"
-                    tools:text="FF:FF:FF:FF:FF:FF" />
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/textView_mainFragment_floatingWindowTitle"
+                        style="@style/Card.Title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/mainFrag_floatingWindowTitle"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
-                <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/textView_mainFragment_currentRssiTitle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:text="@string/mainFrag_currentRssiTitle"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/textView_mainFragment_currentWifiMacContent" />
+            </androidx.cardview.widget.CardView>
 
-                <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/textView_mainFragment_currentRssiContent"
-                    style="@style/Card.CurrentInfoContent"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/rssi_value"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/textView_mainFragment_currentRssiTitle"
-                    tools:text="-- dBm" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/testButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Click Me"
+                android:visibility="gone" />
 
-                <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/textView_mainFragment_currentLinkSpeedTitle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:text="@string/mainFrag_currentLinkSpeedTitle"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/textView_mainFragment_currentRssiContent" />
-
-                <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/textView_mainFragment_currentLinkSpeedContent"
-                    style="@style/Card.CurrentInfoContent"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/linkSpeed_value"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/textView_mainFragment_currentLinkSpeedTitle"
-                    tools:text="-- Mbps" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </androidx.cardview.widget.CardView>
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/testButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Click Me"
-            android:visibility="gone" />
-
-    </FrameLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 </layout>
