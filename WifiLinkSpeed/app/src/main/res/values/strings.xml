@@ -21,6 +21,7 @@
     <string name="mainFrag_currentRssiTitle">RSSI</string>
     <string name="mainFrag_currentLinkSpeedTitle">Link Speed</string>
     <string name="mainFrag_floatingWindowTitle">Floating Window</string>
+    <string name="mainFrag_shortCutsTitle">Shortcuts</string>
 
     <!-- Speedtest 404 Dialog -->
     <string name="speedtestDialog_Title">Speedtest Not Found</string>
