@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
+    <shortcut
+        android:enabled="true"
+        android:icon="@mipmap/ic_launcher"
+        android:shortcutDisabledMessage="@string/shoutcuts_newActivityTitle"
+        android:shortcutId="compose"
+        android:shortcutLongLabel="@string/shoutcuts_newActivityTitle"
+        android:shortcutShortLabel="@string/shoutcuts_newActivityTitle">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetClass="com.txwstudio.app.wifilinkspeed.activity.MainActivity2"
+            android:targetPackage="com.txwstudio.app.wifilinkspeed" />
+        <categories android:name="android.shortcut.conversation" />
+    </shortcut>
+</shortcuts>

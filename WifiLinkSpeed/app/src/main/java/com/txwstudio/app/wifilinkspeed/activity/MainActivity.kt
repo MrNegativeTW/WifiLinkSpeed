@@ -1,4 +1,4 @@
-package com.txwstudio.app.wifilinkspeed
+package com.txwstudio.app.wifilinkspeed.activity
 
 import android.annotation.TargetApi
 import android.content.Context
@@ -8,7 +8,6 @@ import android.net.wifi.WifiInfo
 import android.net.wifi.WifiManager
 import android.os.*
 import android.provider.Settings
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -22,6 +21,9 @@ import com.google.android.gms.ads.MobileAds
 import com.squareup.picasso.MemoryPolicy
 import com.squareup.picasso.NetworkPolicy
 import com.squareup.picasso.Picasso
+import com.txwstudio.app.wifilinkspeed.service.FloatWindowService
+import com.txwstudio.app.wifilinkspeed.NetworkUtil
+import com.txwstudio.app.wifilinkspeed.R
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.dialog_moreinfo.view.*
 import java.lang.Exception
@@ -49,7 +51,7 @@ class MainActivity : AppCompatActivity() {
         adview_main_ad.loadAd(AdRequest.Builder().build())
 
         getWifiInfo()
-        mHandler = Handler()
+        mHandler = Handler(Looper.getMainLooper())
 
         getUnsplashRandomPhoto()
     }
@@ -114,20 +116,19 @@ class MainActivity : AppCompatActivity() {
                 val builder = AlertDialog.Builder(this)
                 builder.setTitle(R.string.speedtestDialog_Title)
                 builder.setMessage(R.string.speedtestDialog_Meg)
-                builder.setPositiveButton(R.string.global_yes){dialog, id ->
+                builder.setPositiveButton(R.string.global_yes){ dialog, id ->
                     intent = Intent(Intent.ACTION_VIEW).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                     intent?.data = Uri.parse("market://details?id=org.zwanoo.android.speedtest")
                     startActivity(intent)
                 }
-                builder.setNegativeButton(R.string.global_no){dialog, id ->  }
+                builder.setNegativeButton(R.string.global_no){ dialog, id ->  }
 
                 builder.show()
             }
         }
 
         cardview_main_openfastcom.setOnClickListener {
-            val builder = CustomTabsIntent.Builder()
-            val customTabsIntent = builder.build()
+            val customTabsIntent = CustomTabsIntent.Builder().build()
             customTabsIntent.launchUrl(this, Uri.parse("https://fast.com"))
         }
 

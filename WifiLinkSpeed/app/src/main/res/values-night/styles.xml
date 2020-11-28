@@ -1,0 +1,7 @@
+<resources>
+    <!-- Brand NEW theme -->
+    <style name="AppTheme2" parent="Theme.MaterialComponents.DayNight">
+        <item name="colorPrimaryDark">?attr/colorSurface</item>
+        <item name="android:windowLightStatusBar">false</item>
+    </style>
+</resources>

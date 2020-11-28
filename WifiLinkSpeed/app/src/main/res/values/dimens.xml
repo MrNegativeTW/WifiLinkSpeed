@@ -2,5 +2,6 @@
 <resources>
     <dimen name="card_content_padding_vertical">8dp</dimen>
     <dimen name="card_content_padding_horizontal">16dp</dimen>
+    <dimen name="card_mainFragment_cornerRadius_4dp">4dp</dimen>
     <dimen name="sixteen">16dp</dimen>
 </resources>

@@ -1,4 +1,4 @@
-package com.txwstudio.app.wifilinkspeed
+package com.txwstudio.app.wifilinkspeed.service
 
 import android.annotation.SuppressLint
 import android.app.Service
@@ -12,8 +12,7 @@ import android.os.Handler
 import android.os.IBinder
 import android.view.*
 import android.widget.TextView
-import android.widget.Toast
-import kotlinx.android.synthetic.main.service_float_window.*
+import com.txwstudio.app.wifilinkspeed.R
 
 
 class FloatWindowService : Service() {
